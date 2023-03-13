@@ -1,0 +1,90 @@
+.long-pane {
+    -fx-pref-width: 1150;
+    -fx-pref-height: 750;
+    -fx-background-color: white;
+}
+
+.top-pane {
+    /*-fx-background-color: #e7e8ea;*/
+    -fx-pref-width: 1150;
+    -fx-pref-height: 40;
+}
+
+.btn-upload {
+    -fx-background-color: dodgerblue;
+    -fx-font-family: Arial;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-pref-width: 158;
+    -fx-pref-height: 47;
+}
+
+.btn-upload:hover {
+    -fx-background-color: #1bb5e8;
+}
+
+.btn-save {
+    -fx-background-color: #328ca8;
+    -fx-font-family: Arial;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-pref-width: 158;
+    -fx-pref-height: 47;
+}
+
+.btn-save:hover {
+    -fx-background-color: #3aaacc;
+}
+
+
+.btn-reset {
+    -fx-background-color: red;
+    -fx-font-family: Arial;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-pref-width: 158;
+    -fx-pref-height: 47;
+}
+
+.btn-reset:hover {
+    -fx-background-color: #e74848;
+}
+
+.combo-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}
+
+.text-field {
+    -fx-background-color: #F6F6F6;
+    -fx-prompt-text-fill: gray;
+    -fx-text-fill: black;
+    -fx-font-family: Arial;
+    -fx-border-color: #3a6188;
+    -fx-border-width: 0.5;
+}
+
+.combo-box-base {
+    -fx-background-color: #F6F6F6;
+    -fx-border-color: #3a6188;
+}
+
+
+.top-label {
+    -fx-text-fill: #888c8b;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 20;
+}
+
+.cancel-pane:hover {
+    -fx-background-color: #b71818;
+    -fx-background-radius: 5;
+}
+
+.label-background {
+    -fx-background-color: #dae0da;
+    -fx-font-size: 15;
+    -fx-font-family: Tahoma;
+    -fx-font-weight: bold;
+}
