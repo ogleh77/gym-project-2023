@@ -82,10 +82,12 @@ public class PaymentModel {
 
             if (daysRemain != 0) {
 
+                LocalDate remainedDays = LocalDate.now().plusDays(daysRemain);
+
                 String deleteQuery = "DELETE FROM pending WHERE payment_fk=" + paymentID;
 
                 String unPendPayment = "UPDATE payments SET is_online=true, pending=false," +
-                        "exp_date='" + daysRemain + "' WHERE payment_id=" + paymentID;
+                        "exp_date='" + remainedDays + "' WHERE payment_id=" + paymentID;
 
                 statement.addBatch(deleteQuery);
                 statement.addBatch(unPendPayment);
@@ -129,6 +131,7 @@ public class PaymentModel {
 
         return getPayments(payments, statement, rs);
     }
+
     public ObservableList<Payments> fetchCustomersOfflinePayment(String customerPhone) throws SQLException {
 
         ObservableList<Payments> payments = FXCollections.observableArrayList();
@@ -140,6 +143,7 @@ public class PaymentModel {
         return getPayments(payments, statement, rs);
 
     }
+
     //--------------------Helpers---------––--------
     private ObservableList<Payments> getPayments(ObservableList<Payments> payments, Statement
             statement, ResultSet rs) throws SQLException {

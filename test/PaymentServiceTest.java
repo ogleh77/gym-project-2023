@@ -29,8 +29,8 @@ class PaymentServiceTest {
     @Test
     void pendPayment() throws SQLException {
         Payments payment = new PaymentBuilder()
-                .setPaymentID(4)
-                .setExpDate(LocalDate.now().plusDays(20))
+                .setPaymentID(1)
+                .setExpDate(LocalDate.now().plusDays(25))
                 .build();
         payment.setBox(new Box(1, null, true));
 

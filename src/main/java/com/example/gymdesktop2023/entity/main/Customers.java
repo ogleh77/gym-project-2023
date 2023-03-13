@@ -35,12 +35,12 @@ public class Customers implements Comparable<Customers> {
         this.whoAdded = whoAdded;
         this.payments = FXCollections.observableArrayList();
 
-        this.information = new JFXButton("information");
-        this.paymentBtn = new JFXButton("payment");
-        this.update = new JFXButton("update");
-        this.information.setStyle("-fx-background-color: #1e6e66;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
-        this.update.setStyle("-fx-background-color: dodgerblue;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
-        this.paymentBtn.setStyle("-fx-background-color: #145ab6;-fx-text-fill: white;-fx-pref-width: 80;-fx-font-size: 14");
+//        this.information = new JFXButton("information");
+//        this.paymentBtn = new JFXButton("payment");
+//        this.update = new JFXButton("update");
+//        this.information.setStyle("-fx-background-color: #1e6e66;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
+//        this.update.setStyle("-fx-background-color: dodgerblue;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
+//        this.paymentBtn.setStyle("-fx-background-color: #145ab6;-fx-text-fill: white;-fx-pref-width: 80;-fx-font-size: 14");
 
     }
 
