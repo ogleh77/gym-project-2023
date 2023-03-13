@@ -1,4 +1,4 @@
-package com.example.gymdesktop2023.entity;
+package com.example.gymdesktop2023.entity.service;
 
 public class Box {
     private int boxId;

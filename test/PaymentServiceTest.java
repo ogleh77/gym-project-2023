@@ -1,8 +1,8 @@
-import com.example.gymdesktop2023.dto.PaymentService;
-import com.example.gymdesktop2023.entity.Box;
+import com.example.gymdesktop2023.dto.main.PaymentService;
+import com.example.gymdesktop2023.entity.service.Box;
 import com.example.gymdesktop2023.entity.main.PaymentBuilder;
 import com.example.gymdesktop2023.entity.main.Payments;
-import com.example.gymdesktop2023.models.PaymentModel;
+import com.example.gymdesktop2023.models.main.PaymentModel;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;

@@ -1,7 +1,7 @@
-package com.example.gymdesktop2023.models;
+package com.example.gymdesktop2023.models.main;
 
-import com.example.gymdesktop2023.dto.BoxService;
-import com.example.gymdesktop2023.entity.Box;
+import com.example.gymdesktop2023.dto.service.BoxService;
+import com.example.gymdesktop2023.entity.service.Box;
 import com.example.gymdesktop2023.entity.main.PaymentBuilder;
 import com.example.gymdesktop2023.entity.main.Payments;
 import com.example.gymdesktop2023.helpers.CustomException;

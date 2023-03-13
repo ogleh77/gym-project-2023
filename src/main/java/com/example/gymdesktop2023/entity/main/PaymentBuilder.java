@@ -1,6 +1,6 @@
 package com.example.gymdesktop2023.entity.main;
 
-import com.example.gymdesktop2023.entity.Box;
+import com.example.gymdesktop2023.entity.service.Box;
 
 import java.time.LocalDate;
 public class PaymentBuilder {

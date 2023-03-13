@@ -1,6 +1,6 @@
-package com.example.gymdesktop2023.models;
+package com.example.gymdesktop2023.models.service;
 
-import com.example.gymdesktop2023.entity.Box;
+import com.example.gymdesktop2023.entity.service.Box;
 import com.example.gymdesktop2023.helpers.DbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,7 +12,6 @@ import java.sql.Statement;
 
 public class BoxModel {
     private static final Connection connection = DbConnection.getConnection();
-
 
     public void insert(Box box) throws SQLException {
         String insertBox = " INSERT INTO box(box_name) " +
@@ -38,7 +37,6 @@ public class BoxModel {
 
     }
 
-
     public ObservableList<Box> fetchBoxes() throws SQLException {
         ObservableList<Box> boxes = FXCollections.observableArrayList();
         Box box;
@@ -54,24 +52,5 @@ public class BoxModel {
         statement.close();
         return boxes;
     }
-
-
-//    public void setTookBoxIsReadyFalse(Box box) throws SQLException {
-//        String boxFalseQuery = "UPDATE box SET is_ready=false WHERE box_id=" + box.getBoxId();
-//        Statement statement = connection.createStatement();
-//        statement.executeUpdate(boxFalseQuery);
-//        box.setReady(false);
-//        System.out.println(box.getBoxId() + " made false");
-//    }
-//
-//    public void setTookBoxIsReadyTrue(Box box) throws SQLException {
-//        String boxFalseQuery = "UPDATE box SET is_ready=true WHERE box_id=" + box.getBoxId();
-//        Statement statement = connection.createStatement();
-//        statement.executeUpdate(boxFalseQuery);
-//        //set the box off
-//        box.setReady(true);
-//        System.out.println(box.getBoxName() + " made false");
-//    }
-
 
 }

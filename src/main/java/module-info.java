@@ -9,15 +9,20 @@ module com.example.gymdesktop {
 
     opens com.example.gymdesktop2023 to javafx.fxml;
     opens com.example.gymdesktop2023.entity.main to javafx.fxml;
-    opens com.example.gymdesktop2023.models to javafx.fxml;
-    opens com.example.gymdesktop2023.dto to javafx.fxml;
 
 
-    exports com.example.gymdesktop2023.dto;
-    exports com.example.gymdesktop2023.models;
     exports com.example.gymdesktop2023;
-    exports com.example.gymdesktop2023.entity;
     exports com.example.gymdesktop2023.entity.main;
+    exports com.example.gymdesktop2023.entity.service;
+    opens com.example.gymdesktop2023.entity.service to javafx.fxml;
+    exports com.example.gymdesktop2023.dto.service;
+    opens com.example.gymdesktop2023.dto.service to javafx.fxml;
+    exports com.example.gymdesktop2023.dto.main;
+    opens com.example.gymdesktop2023.dto.main to javafx.fxml;
+    exports com.example.gymdesktop2023.models.service;
+    opens com.example.gymdesktop2023.models.service to javafx.fxml;
+    exports com.example.gymdesktop2023.models.main;
+    opens com.example.gymdesktop2023.models.main to javafx.fxml;
 
 
 }

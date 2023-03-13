@@ -1,9 +1,9 @@
-package com.example.gymdesktop2023.dto;
+package com.example.gymdesktop2023.dto.main;
 
 import com.example.gymdesktop2023.entity.main.Customers;
 import com.example.gymdesktop2023.entity.main.Payments;
 import com.example.gymdesktop2023.helpers.CustomException;
-import com.example.gymdesktop2023.models.PaymentModel;
+import com.example.gymdesktop2023.models.main.PaymentModel;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;

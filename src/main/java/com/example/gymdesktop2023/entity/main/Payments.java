@@ -1,7 +1,6 @@
 package com.example.gymdesktop2023.entity.main;
 
-import com.example.gymdesktop2023.entity.Box;
-import com.jfoenix.controls.JFXButton;
+import com.example.gymdesktop2023.entity.service.Box;
 
 import java.time.LocalDate;
 

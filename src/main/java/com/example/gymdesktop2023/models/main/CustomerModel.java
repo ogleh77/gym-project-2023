@@ -1,10 +1,10 @@
-package com.example.gymdesktop2023.models;
+package com.example.gymdesktop2023.models.main;
 
-import com.example.gymdesktop2023.dto.PaymentService;
+import com.example.gymdesktop2023.dto.main.PaymentService;
 import com.example.gymdesktop2023.entity.main.CustomerBuilder;
 import com.example.gymdesktop2023.entity.main.Customers;
 import com.example.gymdesktop2023.entity.main.Payments;
-import com.example.gymdesktop2023.entity.main.Users;
+import com.example.gymdesktop2023.entity.service.Users;
 import com.example.gymdesktop2023.helpers.DbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
