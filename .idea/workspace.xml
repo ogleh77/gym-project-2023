@@ -9,19 +9,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/BoxService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/service/BoxService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/Box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/service/Box.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/PaymentBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/PaymentBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Payments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Payments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/service/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/BoxModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/service/BoxModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/CustomerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/main/CustomerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/PaymentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/main/PaymentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PaymentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PaymentServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/example/gymdesktop2023/dto/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/example/gymdesktop2023/dto/CustomerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,39 +80,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GymServiceTest.getGym">
-    <configuration name="CustomerServiceTest.fetchOfflineCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gym-desktop-2023" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.gymdesktop2023.dto.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto" />
-      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.CustomerServiceTest" />
-      <option name="METHOD_NAME" value="fetchOfflineCustomer" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CustomerServiceTest.fetchOnlineCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gym-desktop-2023" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.gymdesktop2023.dto.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto" />
-      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.CustomerServiceTest" />
-      <option name="METHOD_NAME" value="fetchOnlineCustomer" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserServiceTest.users">
     <configuration name="GymServiceTest.getGym" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gym-desktop-2023" />
       <extension name="coverage">
@@ -157,11 +113,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceTest.unPendPayment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.insertUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gym-desktop-2023" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PaymentServiceTest" />
-      <option name="METHOD_NAME" value="unPendPayment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gymdesktop2023.dto.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="insertUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gym-desktop-2023" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gymdesktop2023.dto.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="update" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.users" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gym-desktop-2023" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gymdesktop2023.dto.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="users" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -169,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceTest.users" />
+        <item itemvalue="JUnit.UserServiceTest.update" />
+        <item itemvalue="JUnit.UserServiceTest.insertUser" />
         <item itemvalue="JUnit.GymServiceTest.getGym" />
         <item itemvalue="JUnit.GymServiceTest.updateGym" />
-        <item itemvalue="JUnit.CustomerServiceTest.fetchOnlineCustomer" />
-        <item itemvalue="JUnit.PaymentServiceTest.unPendPayment" />
-        <item itemvalue="JUnit.CustomerServiceTest.fetchOfflineCustomer" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +181,7 @@
       <updated>1678633928167</updated>
       <workItem from="1678633929842" duration="673000" />
       <workItem from="1678688004926" duration="398000" />
-      <workItem from="1678691291998" duration="12805000" />
+      <workItem from="1678691291998" duration="13734000" />
     </task>
     <servers />
   </component>
