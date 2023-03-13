@@ -4,6 +4,7 @@ import com.example.gymdesktop2023.entity.main.Customers;
 import com.example.gymdesktop2023.entity.main.Payments;
 import com.example.gymdesktop2023.helpers.CustomException;
 import com.example.gymdesktop2023.models.PaymentModel;
+import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -31,7 +32,7 @@ public class PaymentService {
             if (daysRemind <= allowedDays) {
                 throw new CustomException("Fadlan lama xidhi karo event kan waayo\n" +
                         " wuxu ka hoseya wakhtiga loo asteyey oo ah " + allowedDays + " malmood " +
-                        "Payment kana waxa u hadhay "+daysRemind+" Malmood");
+                        "Payment kana waxa u hadhay " + daysRemind + " Malmood");
             }
             paymentModel.holdPayment(payment, daysRemind);
         } catch (SQLException e) {
@@ -47,8 +48,17 @@ public class PaymentService {
         }
     }
 
+    public static ObservableList<Payments> fetchAllCustomersPayments(String customerPhone) throws SQLException {
+        return paymentModel.fetchAllCustomersPayments(customerPhone);
+    }
 
+    public static ObservableList<Payments> fetchCustomersOnlinePayment(String customerPhone) throws SQLException {
+        return paymentModel.fetchCustomersOnlinePayment(customerPhone);
+    }
 
+    public static ObservableList<Payments> fetchCustomersOfflinePayment(String customerPhone) throws SQLException {
+        return paymentModel.fetchCustomersOfflinePayment(customerPhone);
+    }
 
 
 }

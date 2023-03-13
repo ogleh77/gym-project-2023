@@ -1,11 +1,16 @@
 package com.example.gymdesktop2023.models;
 
 import com.example.gymdesktop2023.dto.BoxService;
+import com.example.gymdesktop2023.entity.Box;
+import com.example.gymdesktop2023.entity.main.PaymentBuilder;
 import com.example.gymdesktop2023.entity.main.Payments;
 import com.example.gymdesktop2023.helpers.CustomException;
 import com.example.gymdesktop2023.helpers.DbConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class PaymentModel {
     private static final Connection connection = DbConnection.getConnection();
@@ -52,7 +57,7 @@ public class PaymentModel {
                 System.out.println("Payment has a box");
                 paymentQuery = "UPDATE payments SET is_online=false,pending=true,box_fk=null WHERE payment_id=" + payment.getPaymentID();
                 BoxService.updateBox(payment.getBox());
-            }else{
+            } else {
                 System.out.println("Payment dosnt have a box");
             }
 
@@ -102,6 +107,78 @@ public class PaymentModel {
 
     //Fetch Payments---------------------
 
+    public ObservableList<Payments> fetchAllCustomersPayments(String phone) throws SQLException {
+        //-------Fetch payments according to customer that belongs--------tested......
+
+        ObservableList<Payments> payments = FXCollections.observableArrayList();
+        Statement statement = connection.createStatement();
+
+        Payments payment = null;
+        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + phone + " ORDER BY exp_date DESC");
+
+        return getPayments(payments, statement, rs);
+    }
+
+    public ObservableList<Payments> fetchCustomersOnlinePayment(String customerPhone) throws SQLException {
+
+        ObservableList<Payments> payments = FXCollections.observableArrayList();
+        Statement statement = connection.createStatement();
+
+        Payments payment = null;
+        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + customerPhone + "  AND pending=false AND is_online=true");
+
+        return getPayments(payments, statement, rs);
+    }
+    public ObservableList<Payments> fetchCustomersOfflinePayment(String customerPhone) throws SQLException {
+
+        ObservableList<Payments> payments = FXCollections.observableArrayList();
+        Statement statement = connection.createStatement();
+
+        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + customerPhone + "  AND pending=false AND is_online=false");
+
+
+        return getPayments(payments, statement, rs);
+
+    }
+    //--------------------Helpers---------––--------
+    private ObservableList<Payments> getPayments(ObservableList<Payments> payments, Statement
+            statement, ResultSet rs) throws SQLException {
+        Payments payment;
+        while (rs.next()) {
+
+            Box box = null;
+            if (rs.getString("box_fk") != null) {
+                box = new Box(rs.getInt("box_id"), rs.getString("box_name"), rs.getBoolean("is_ready"));
+            }
+
+            payment = getPayments(rs);
+            payment.setBox(box);
+            payments.add(payment);
+
+        }
+
+        statement.close();
+        rs.close();
+        return payments;
+    }
+
+    private Payments getPayments(ResultSet rs) throws SQLException {
+        Payments payment;
+        payment = new PaymentBuilder()
+                .setPaymentID(rs.getInt("payment_id"))
+                .setPaymentDate(rs.getString("payment_date"))
+                .setExpDate(LocalDate.parse(rs.getString("exp_date")))
+                .setAmountPaid(rs.getDouble("amount_paid"))
+                .setPaidBy(rs.getString("paid_by"))
+                .setPoxing(rs.getBoolean("poxing"))
+                .setDiscount(rs.getDouble("discount"))
+                .setCustomerFK(rs.getString("customer_phone_fk"))
+                .setOnline(rs.getBoolean("is_online"))
+                .setYear(rs.getString("year"))
+                .setPending(rs.getBoolean("pending"))
+                .setMonth(rs.getString("month")).build();
+        return payment;
+    }
 
     private int daysRemain(int paymentID) throws SQLException {
         Statement statement = connection.createStatement();
@@ -116,5 +193,25 @@ public class PaymentModel {
         statement.close();
         rs.close();
         return 0;
+    }
+
+    public void offPayment(Payments payment) throws SQLException {
+        connection.setAutoCommit(false);
+        try {
+            Statement statement = connection.createStatement();
+            String query = "UPDATE payments SET is_online=false WHERE payment_id=" + payment.getPaymentID();
+            if (payment.getBox() != null) {
+                BoxService.updateBox(payment.getBox());
+            }
+            statement.executeUpdate(query);
+            connection.commit();
+        } catch (SQLException e) {
+            connection.rollback();
+            e.printStackTrace();
+            throw new CustomException("Khalad ayaa dhacay mmarka lama off garayn paymentkan");
+        }
+
+
+        // TODO: 09/03/2023 Make paymenr off insha Allah
     }
 }

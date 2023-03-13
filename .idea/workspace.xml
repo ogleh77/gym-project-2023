@@ -5,65 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6496ca72-e779-40be-bd2d-4a3f9de891c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/DbConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/dashboard-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/long-pane.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/small-pane.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/table-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/535-5355451_payment-success-illustration-png-transparent-png.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/adduser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/backup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/bike.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/experimental-loading-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/form_img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-account-50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-available-updates-24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-barbell-50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-bell-48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-business-report-50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-close-30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-close-window-48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-collapse-30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-dashboard-layout-24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-data-backup-24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-forgot-password-50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-hold-32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-home-24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-menu-30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-pay-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-registration-30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-search-24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-select-users-64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-settings-24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/icons8-user-30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/loading_5.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/loading_girl.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/loading_man.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/png-transparent-online-payment-illustration.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/sign-up-concept-illustration_114360-7965.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/sx_back.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/undraw_Dashboard_re_3b76.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/undraw_Healthy_habit_re_duor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/undraw_Make_it_rain_re_w9pc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/undraw_Plain_credit_card_re_c07w.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/undraw_Success_factors_re_ce93.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/whiteadduser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons/whitedumbel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/PaymentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/PaymentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PaymentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PaymentServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +48,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "last_opened_file_path": "/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/java/com/example/gymdesktop2023/dto",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -205,7 +151,7 @@
       <updated>1678633928167</updated>
       <workItem from="1678633929842" duration="673000" />
       <workItem from="1678688004926" duration="398000" />
-      <workItem from="1678691291998" duration="9026000" />
+      <workItem from="1678691291998" duration="9913000" />
     </task>
     <servers />
   </component>
