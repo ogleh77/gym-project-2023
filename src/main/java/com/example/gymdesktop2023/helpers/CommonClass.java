@@ -5,6 +5,7 @@ import animatefx.animation.Shake;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideInRight;
 import com.example.gymdesktop2023.entity.main.Customers;
+import com.example.gymdesktop2023.entity.service.Users;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -34,13 +35,13 @@ public abstract class CommonClass {
 
     protected Customers customer;
 
-   // protected Users activeUser;
+    protected Users activeUser;
 
     protected BorderPane borderPane;
 
     //protected Gym currentGym;
     public final String[] images = {
-            "/com/example/gym/style/icons/loading_5.gif",
+            "/com/example/gymdesktop2023/style/icons/loading_5.gif",
             "/com/example/randomimage/random-images/man.gif"
     };
 
@@ -216,9 +217,9 @@ public abstract class CommonClass {
     }
 
 
-    //public void setActiveUser(Users activeUser) {
-     //   this.activeUser = activeUser;
- //   }
+    public void setActiveUser(Users activeUser) {
+        this.activeUser = activeUser;
+    }
 
     public void setBorderPane(BorderPane borderPane) {
         this.borderPane = borderPane;

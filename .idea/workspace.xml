@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6496ca72-e779-40be-bd2d-4a3f9de891c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b56a47f9-7443-4568-8c7b-be125bf3103e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b56a47f9-7443-4568-8c7b-be125bf3103e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,7 +48,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
-    "last_opened_file_path": "/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/java/com/example/gymdesktop2023/entity/service",
+    "last_opened_file_path": "/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/resources/com/example/gymdesktop2023/views/service",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -62,11 +62,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/service" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style" />
@@ -80,7 +80,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.users">
+  <component name="RunManager" selected="Application.HelloApplication">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.HelloApplication" />
+      <module name="gym-desktop-2023" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gymdesktop2023.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GymServiceTest.getGym" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gym-desktop-2023" />
       <extension name="coverage">
@@ -92,22 +105,6 @@
       <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto.service" />
       <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.service.GymServiceTest" />
       <option name="METHOD_NAME" value="getGym" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GymServiceTest.updateGym" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gym-desktop-2023" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.gymdesktop2023.dto.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto.service" />
-      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.service.GymServiceTest" />
-      <option name="METHOD_NAME" value="updateGym" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -163,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.UserServiceTest.users" />
         <item itemvalue="JUnit.UserServiceTest.update" />
         <item itemvalue="JUnit.UserServiceTest.insertUser" />
         <item itemvalue="JUnit.GymServiceTest.getGym" />
-        <item itemvalue="JUnit.GymServiceTest.updateGym" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +178,8 @@
       <updated>1678633928167</updated>
       <workItem from="1678633929842" duration="673000" />
       <workItem from="1678688004926" duration="398000" />
-      <workItem from="1678691291998" duration="13734000" />
+      <workItem from="1678691291998" duration="13786000" />
+      <workItem from="1678777854220" duration="2506000" />
     </task>
     <servers />
   </component>
