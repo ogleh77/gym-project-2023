@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6496ca72-e779-40be-bd2d-4a3f9de891c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/SplashScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/SplashScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
-    "last_opened_file_path": "/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/resources/com/example/gymdesktop2023/views/service",
+    "last_opened_file_path": "/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/resources/com/example/gymdesktop2023/views/main",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -62,11 +60,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/service" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style" />
@@ -179,7 +177,7 @@
       <workItem from="1678633929842" duration="673000" />
       <workItem from="1678688004926" duration="398000" />
       <workItem from="1678691291998" duration="13786000" />
-      <workItem from="1678777854220" duration="2506000" />
+      <workItem from="1678777854220" duration="5013000" />
     </task>
     <servers />
   </component>

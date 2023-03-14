@@ -14,6 +14,8 @@ module com.example.gymdesktop {
     opens com.example.gymdesktop2023.models.service to javafx.fxml;
     opens com.example.gymdesktop2023.models.main to javafx.fxml;
     opens com.example.gymdesktop2023.controllers to javafx.fxml;
+    opens com.example.gymdesktop2023.controllers.main to javafx.fxml;
+
 
     exports com.example.gymdesktop2023;
     exports com.example.gymdesktop2023.entity.main;
