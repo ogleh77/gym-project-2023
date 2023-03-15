@@ -1,4 +1,4 @@
-package com.example.gymdesktop2023.controllers;
+package com.example.gymdesktop2023.controllers.service;
 
 import animatefx.animation.FadeOut;
 import com.example.gymdesktop2023.dto.service.UserService;

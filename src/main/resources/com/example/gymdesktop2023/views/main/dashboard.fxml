@@ -66,7 +66,7 @@
                             <Insets left="10.0" />
                         </HBox.margin>
                     </Label>
-                    <StackPane fx:id="notificationsHBox" prefHeight="41.0" prefWidth="55.0" styleClass="menu" visible="false">
+                    <StackPane fx:id="notificationsHBox" onMouseClicked="#warningHandler" prefHeight="41.0" prefWidth="55.0" styleClass="menu">
                         <HBox.margin>
                             <Insets bottom="2.0" left="15.0" top="2.0" />
                         </HBox.margin>
@@ -111,7 +111,7 @@
                         </font>
                     </Text>
                 </VBox>
-                <HBox alignment="CENTER_LEFT" layoutX="392.0" layoutY="338.0" prefHeight="68.0" prefWidth="344.0" styleClass="menu-hover">
+                <HBox alignment="CENTER_LEFT" layoutX="392.0" layoutY="338.0" onMouseClicked="#registrationHandler" prefHeight="68.0" prefWidth="344.0" styleClass="menu-hover">
                     <JFXButton buttonType="RAISED" prefHeight="59.0" prefWidth="75.0" style="-fx-background-color: #3a6188#3a6188;" text=".">
                         <graphic>
                             <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -141,7 +141,7 @@
                         </Text>
                     </VBox>
                 </HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="392.0" layoutY="245.0" prefHeight="68.0" prefWidth="344.0" styleClass="menu-hover">
+                <HBox alignment="CENTER_LEFT" layoutX="392.0" layoutY="245.0" onMouseClicked="#homeClickHandler" prefHeight="68.0" prefWidth="344.0" styleClass="menu-hover">
                     <StackPane>
                         <HBox.margin>
                             <Insets left="10.0" />
@@ -313,7 +313,7 @@
                         <Font name="Arial" size="18.0" />
                     </font>
                 </JFXButton>
-                <JFXButton buttonType="RAISED" styleClass="side-btn" text="Registrations" textFill="#e8dcdc">
+                <JFXButton buttonType="RAISED" onAction="#registrationHandler" styleClass="side-btn" text="Registrations" textFill="#e8dcdc">
                     <graphic>
                         <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-registration-30.png" />

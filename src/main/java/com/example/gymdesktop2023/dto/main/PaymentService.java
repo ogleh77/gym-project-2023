@@ -21,6 +21,7 @@ public class PaymentService {
             throw new CustomException("Khalad ayaaa ka dhacay " + e.getMessage() + " " +
                     "\n fadlan dib u search garee customerka kadibna payment usamee");
         }
+
     }
 
     public static void holdPayment(Payments payment, int allowedDays) throws SQLException {

@@ -182,7 +182,7 @@ public abstract class CommonClass {
         return mandatoryFields;
     }
 
-    private SlideInLeft getSlideInLeft() {
+    public SlideInLeft getSlideInLeft() {
         if (slideInLeft == null) {
             slideInLeft = new SlideInLeft();
         }
@@ -190,14 +190,14 @@ public abstract class CommonClass {
     }
 
 
-    private SlideInRight getSlideInRight() {
+    public SlideInRight getSlideInRight() {
         if (slideInRight == null) {
             slideInRight = new SlideInRight();
         }
         return slideInRight;
     }
 
-    private FadeIn getFadeIn() {
+    public FadeIn getFadeIn() {
         if (fadeIn == null) {
             fadeIn = new FadeIn();
         }

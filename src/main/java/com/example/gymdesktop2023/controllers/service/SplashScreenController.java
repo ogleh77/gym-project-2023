@@ -1,4 +1,4 @@
-package com.example.gymdesktop2023.controllers;
+package com.example.gymdesktop2023.controllers.service;
 
 import com.example.gymdesktop2023.HelloApplication;
 import com.example.gymdesktop2023.controllers.main.DashboardController;
