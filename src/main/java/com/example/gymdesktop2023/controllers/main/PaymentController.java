@@ -112,7 +112,7 @@ public class PaymentController extends CommonClass implements Initializable {
         currentCost = fitnessCost;
         amountPaid.setText(String.valueOf(currentCost));
         paymentValidation();
-
+        validateDiscount();
 
     }
 
@@ -202,6 +202,7 @@ public class PaymentController extends CommonClass implements Initializable {
                                 .setPoxing(poxing.isSelected())
                                 .setCustomerFK(customer.getPhone())
                                 .setDiscount(_discount)
+                                .setOnline(true)
                                 .build();
 
                         if (boxChooser.getValue() != null && !boxChooser.getValue().getBoxName().matches("remove box")) {
@@ -210,6 +211,7 @@ public class PaymentController extends CommonClass implements Initializable {
                         }
                         customer.getPayments().add(0, payment);
                         PaymentService.insertPayment(customer);
+                        Thread.sleep(100);
                         Platform.runLater(() -> {
                             informationAlert("Waxaad samayasay payment cusub..");
                         });
@@ -218,6 +220,8 @@ public class PaymentController extends CommonClass implements Initializable {
                         Platform.runLater(() -> {
                             errorMessage(e.getMessage());
                         });
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
                     }
                     return null;
                 }
@@ -286,6 +290,7 @@ public class PaymentController extends CommonClass implements Initializable {
         fadeIn.play();
 
     }
+
 
     private String validateDiscount() {
 

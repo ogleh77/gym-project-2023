@@ -5,27 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6496ca72-e779-40be-bd2d-4a3f9de891c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/info/WarningController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/RegistrationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/service/CardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/info/warning.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main/home.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main/registrations.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/customer-card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b56a47f9-7443-4568-8c7b-be125bf3103e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b56a47f9-7443-4568-8c7b-be125bf3103e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/service/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/SplashScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/service/SplashScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/splash-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/splash-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/PaymentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +183,8 @@
       <workItem from="1678793605478" duration="2249000" />
       <workItem from="1678869476137" duration="19000" />
       <workItem from="1678870134066" duration="576000" />
-      <workItem from="1678878017255" duration="7631000" />
+      <workItem from="1678878017255" duration="7683000" />
+      <workItem from="1678947378530" duration="1314000" />
     </task>
     <servers />
   </component>
