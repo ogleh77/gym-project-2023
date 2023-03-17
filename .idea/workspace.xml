@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6496ca72-e779-40be-bd2d-4a3f9de891c3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/service/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/service/CardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/main/CustomerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/main/CustomerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/main/PaymentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/main/PaymentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/example/gymdesktop2023/dto/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/example/gymdesktop2023/dto/CustomerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -47,7 +56,8 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/resources/com/example/gymdesktop2023/views/main&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/resources/com/example/gymdesktop2023/views/service&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -61,9 +71,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/info" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/info" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/service" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers" />
     </key>
@@ -74,6 +84,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.gymdesktop2023.controllers.service" />
       <recent name="com.example.gymdesktop2023.dto.service" />
       <recent name="com.example.gymdesktop2023.dto" />
       <recent name="" />
@@ -93,17 +104,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GymServiceTest.getGym" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomerServiceTest.fetchQualifiedOfflineCustomers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gym-desktop-2023" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.gymdesktop2023.dto.service.*" />
+          <option name="PATTERN" value="com.example.gymdesktop2023.dto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto.service" />
-      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.service.GymServiceTest" />
-      <option name="METHOD_NAME" value="getGym" />
+      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto" />
+      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.CustomerServiceTest" />
+      <option name="METHOD_NAME" value="fetchQualifiedOfflineCustomers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -160,10 +171,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.CustomerServiceTest.fetchQualifiedOfflineCustomers" />
         <item itemvalue="JUnit.UserServiceTest.users" />
         <item itemvalue="JUnit.UserServiceTest.update" />
         <item itemvalue="JUnit.UserServiceTest.insertUser" />
-        <item itemvalue="JUnit.GymServiceTest.getGym" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +195,16 @@
       <workItem from="1678869476137" duration="19000" />
       <workItem from="1678870134066" duration="576000" />
       <workItem from="1678878017255" duration="7683000" />
-      <workItem from="1678947378530" duration="1314000" />
+      <workItem from="1678947378530" duration="3026000" />
+      <workItem from="1678967530524" duration="2016000" />
+      <workItem from="1678975531218" duration="6587000" />
+      <workItem from="1679037425455" duration="2942000" />
+      <workItem from="1679041803821" duration="26000" />
+      <workItem from="1679041841012" duration="21000" />
+      <workItem from="1679042151292" duration="6000" />
+      <workItem from="1679042613055" duration="1402000" />
+      <workItem from="1679046368163" duration="1369000" />
+      <workItem from="1679069997296" duration="1003000" />
     </task>
     <servers />
   </component>

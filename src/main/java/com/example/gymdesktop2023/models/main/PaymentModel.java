@@ -1,9 +1,9 @@
 package com.example.gymdesktop2023.models.main;
 
 import com.example.gymdesktop2023.dto.service.BoxService;
-import com.example.gymdesktop2023.entity.service.Box;
 import com.example.gymdesktop2023.entity.main.PaymentBuilder;
 import com.example.gymdesktop2023.entity.main.Payments;
+import com.example.gymdesktop2023.entity.service.Box;
 import com.example.gymdesktop2023.helpers.CustomException;
 import com.example.gymdesktop2023.helpers.DbConnection;
 import javafx.collections.FXCollections;
@@ -141,6 +141,23 @@ public class PaymentModel {
 
 
         return getPayments(payments, statement, rs);
+
+    }
+
+    public ObservableList<Payments> fetchQualifiedOfflinePayment(String customerPhone, String fromDate, String toDate) throws SQLException{
+
+        ObservableList<Payments> payments = FXCollections.observableArrayList();
+        Statement statement = connection.createStatement();
+        String query = "SELECT * FROM payments WHERE " +
+                " customer_phone_fk='" + customerPhone + "'" +
+                " AND is_online=false AND pending=false " +
+                "AND exp_date between '" + fromDate + "' AND '" + toDate + "';";
+        ResultSet rs = statement.executeQuery(query);
+
+        getPayments(payments, statement, rs);
+        statement.close();
+        rs.close();
+        return payments;
 
     }
 

@@ -108,7 +108,7 @@ public class HomeController extends CommonClass implements Initializable {
             };
 
 
-            customer.getUpdate().addEventFilter(MouseEvent.MOUSE_CLICKED, updateHandler);
+            //customer.getUpdate().addEventFilter(MouseEvent.MOUSE_CLICKED, updateHandler);
 
             EventHandler<MouseEvent> paymentHandler = event -> {
                 try {
@@ -119,14 +119,14 @@ public class HomeController extends CommonClass implements Initializable {
             };
 
 
-            customer.getPaymentBtn().addEventFilter(MouseEvent.MOUSE_CLICKED, paymentHandler);
+            //customer.getPaymentBtn().addEventFilter(MouseEvent.MOUSE_CLICKED, paymentHandler);
 
             EventHandler<MouseEvent> informationHandler = event -> {
                 System.out.println("Update pressed");
             };
 
 
-            customer.getInformation().addEventFilter(MouseEvent.MOUSE_CLICKED, informationHandler);
+            //  customer.getInformation().addEventFilter(MouseEvent.MOUSE_CLICKED, informationHandler);
         }
     }
 

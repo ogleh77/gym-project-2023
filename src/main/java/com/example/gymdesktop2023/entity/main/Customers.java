@@ -17,9 +17,9 @@ public class Customers implements Comparable<Customers> {
     private final double weight;
     private final String whoAdded;
     private ObservableList<Payments> payments;
-    private final JFXButton update;
-    private final JFXButton paymentBtn;
-    private final JFXButton information;
+//    private final JFXButton update;
+//    private final JFXButton paymentBtn;
+//    private final JFXButton information;
 
     public Customers(int customerId, String firstName, String middleName, String lastName, String phone, String gander, String shift, String address, String image, double weight, String whoAdded) {
         this.customerId = customerId;
@@ -35,12 +35,12 @@ public class Customers implements Comparable<Customers> {
         this.whoAdded = whoAdded;
         this.payments = FXCollections.observableArrayList();
 
-        this.information = new JFXButton("information");
-        this.paymentBtn = new JFXButton("payment");
-        this.update = new JFXButton("update");
-        this.information.setStyle("-fx-background-color: #1e6e66;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
-        this.update.setStyle("-fx-background-color: dodgerblue;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
-        this.paymentBtn.setStyle("-fx-background-color: #145ab6;-fx-text-fill: white;-fx-pref-width: 80;-fx-font-size: 14");
+//        this.information = new JFXButton("information");
+//        this.paymentBtn = new JFXButton("payment");
+//        this.update = new JFXButton("update");
+//        this.information.setStyle("-fx-background-color: #1e6e66;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
+//        this.update.setStyle("-fx-background-color: dodgerblue;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
+//        this.paymentBtn.setStyle("-fx-background-color: #145ab6;-fx-text-fill: white;-fx-pref-width: 80;-fx-font-size: 14");
 
     }
 
@@ -96,17 +96,17 @@ public class Customers implements Comparable<Customers> {
         return payments;
     }
 
-    public JFXButton getInformation() {
-        return information;
-    }
-
-    public JFXButton getPaymentBtn() {
-        return paymentBtn;
-    }
-
-    public JFXButton getUpdate() {
-        return update;
-    }
+//    public JFXButton getInformation() {
+//        return information;
+//    }
+//
+//    public JFXButton getPaymentBtn() {
+//        return paymentBtn;
+//    }
+//
+//    public JFXButton getUpdate() {
+//        return update;
+//    }
 
     @Override
     public String toString() {

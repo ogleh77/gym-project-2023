@@ -7,6 +7,7 @@ import com.example.gymdesktop2023.entity.service.Users;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 class CustomerServiceTest {
     private final Users user = new Users(1, null, null, null, "Male",
@@ -48,4 +49,9 @@ class CustomerServiceTest {
     }
 
 
+    @Test
+    void fetchQualifiedOfflineCustomers() throws SQLException {
+        System.out.println(CustomerService.fetchQualifiedOfflineCustomers(LocalDate.now().minusDays(200)
+                ,LocalDate.now().plusDays(200)));
+    }
 }

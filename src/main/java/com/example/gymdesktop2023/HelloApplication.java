@@ -1,5 +1,7 @@
 package com.example.gymdesktop2023;
 
+import com.example.gymdesktop2023.controllers.info.OutDatedController;
+import com.example.gymdesktop2023.dto.service.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,11 +9,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymdesktop2023/views/service/login.fxml"));
+    public void start(Stage stage) throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymdesktop2023/views/service/gym-creation.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);

@@ -203,6 +203,7 @@ public class PaymentController extends CommonClass implements Initializable {
                                 .setCustomerFK(customer.getPhone())
                                 .setDiscount(_discount)
                                 .setOnline(true)
+                                .setPending(false)
                                 .build();
 
                         if (boxChooser.getValue() != null && !boxChooser.getValue().getBoxName().matches("remove box")) {
@@ -212,9 +213,7 @@ public class PaymentController extends CommonClass implements Initializable {
                         customer.getPayments().add(0, payment);
                         PaymentService.insertPayment(customer);
                         Thread.sleep(100);
-                        Platform.runLater(() -> {
-                            informationAlert("Waxaad samayasay payment cusub..");
-                        });
+                        Platform.runLater(() -> informationAlert("Waxaad samayasay payment cusub.."));
 
                     } catch (SQLException e) {
                         Platform.runLater(() -> {

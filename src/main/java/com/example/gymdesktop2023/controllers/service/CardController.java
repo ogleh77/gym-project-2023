@@ -1,4 +1,5 @@
 package com.example.gymdesktop2023.controllers.service;
+
 import com.example.gymdesktop2023.entity.main.Customers;
 import com.example.gymdesktop2023.helpers.CommonClass;
 import javafx.fxml.FXML;
@@ -62,6 +63,10 @@ public class CardController extends CommonClass implements Initializable {
         }
     }
 
+    public void setI(int i) {
+        phone.setText(i + "");
+        System.out.println("I have "+i);
+    }
 
     @Override
     public void setBorderPane(BorderPane borderPane) {

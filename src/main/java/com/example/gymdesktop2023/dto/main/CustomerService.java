@@ -7,12 +7,14 @@ import com.example.gymdesktop2023.models.main.CustomerModel;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class CustomerService {
     private static final CustomerModel customerModel = new CustomerModel();
     private static ObservableList<Customers> allCustomersList;
     private static ObservableList<Customers> offlineCustomers;
     private static ObservableList<Customers> onlineCustomers;
+
     public static void insertOrUpdateCustomer(Customers customer, boolean newCustomer) throws SQLException {
         try {
             if (newCustomer) {
@@ -28,18 +30,22 @@ public class CustomerService {
             }
         }
     }
+
     private static void insertCustomer(Customers customer) throws SQLException {
         customerModel.insert(customer);
     }
+
     private static void updateCustomer(Customers customer) throws SQLException {
         customerModel.update(customer);
     }
+
     public static ObservableList<Customers> fetchAllCustomer(Users activeUser) throws SQLException {
         if (allCustomersList == null) {
             allCustomersList = customerModel.fetchAllCustomers(activeUser);
         }
         return allCustomersList;
     }
+
     public static ObservableList<Customers> fetchOfflineCustomer(Users activeUser) throws SQLException {
         if (offlineCustomers == null) {
             offlineCustomers = customerModel.fetchOfflineCustomers(activeUser);
@@ -56,6 +62,12 @@ public class CustomerService {
         return onlineCustomers;
     }
 
+    public static ObservableList<Customers> fetchQualifiedOfflineCustomers(String customerQuery, LocalDate fromDate, LocalDate toDate) throws SQLException {
+        String from = fromDate.toString();
+        String to = toDate.toString();
+
+        return customerModel.fetchQualifiedOfflineCustomers(customerQuery, from, to);
+    }
 
 
 }

@@ -46,6 +46,7 @@ public class CustomerModel {
         statement.close();
         return customers;
     }
+
     public ObservableList<Customers> fetchOfflineCustomers(Users activeUser) throws SQLException {
         System.out.println("Called offline customers");
         ObservableList<Customers> customers = FXCollections.observableArrayList();
@@ -89,6 +90,43 @@ public class CustomerModel {
         statement.close();
         return customers;
     }
+
+    public ObservableList<Customers> fetchQualifiedOfflineCustomers(String customerQuery, String fromDate, String toDate) throws SQLException {
+
+        ObservableList<Customers> customers = FXCollections.observableArrayList();
+
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(customerQuery);
+
+        while (rs.next()) {
+            String customerPhone = rs.getString("phone");
+            ObservableList<Payments> payments = PaymentService.fetchQualifiedOfflinePayment(customerPhone, fromDate, toDate);
+
+            if (payments == null || payments.isEmpty()) {
+                continue;
+            }
+            Customers customer = new CustomerBuilder()
+                    .setCustomerId(rs.getInt("customer_id"))
+                    .setFirstName(rs.getString("first_name"))
+                    .setMiddleName(rs.getString("middle_name"))
+                    .setLastName(rs.getString("last_name"))
+                    .setGander(rs.getString("gander"))
+                    .setAddress(rs.getString("address"))
+                    .setPhone(rs.getString("phone"))
+                    .setImage(rs.getString("image"))
+                    .setWhoAdded(rs.getString("who_added"))
+                    .setShift(rs.getString("shift"))
+                    .setWeight(rs.getDouble("weight")).build();
+
+            customer.setPayments(payments);
+            customers.add(customer);
+
+        }
+
+        return customers;
+
+    }
+
     //---------------––Helpers---------------------
     private void insertOrUpdateStatement(Customers customer, String query, boolean insert) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(query);
