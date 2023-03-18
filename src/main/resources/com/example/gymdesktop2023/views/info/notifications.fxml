@@ -29,32 +29,30 @@
             </ImageView>
         </HBox>
     </HBox>
-    <AnchorPane layoutX="40.0" layoutY="120.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="120.0">
-        <Pagination fx:id="pagination" prefHeight="593.0" prefWidth="1069.0" style="-fx-background-color: eaeaea;" />
-    </AnchorPane>
-    <JFXComboBox fx:id="shift" layoutX="92.0" layoutY="78.0" prefHeight="27.0" prefWidth="168.0" promptText="morning" />
+     <Pagination fx:id="pagination" layoutX="40.0" layoutY="120.0" prefHeight="593.0" prefWidth="1069.0" style="-fx-background-color: eaeaea;" />
+    <JFXComboBox fx:id="shift" layoutX="89.0" layoutY="78.0" prefHeight="27.0" prefWidth="168.0" promptText="morning" />
     <Label layoutX="40.0" layoutY="81.0" prefHeight="24.0" prefWidth="40.0" text="shift" textFill="#6b6565">
         <font>
             <Font name="Tahoma Bold" size="15.0" />
         </font>
     </Label>
-    <JFXRadioButton fx:id="male" layoutX="293.0" layoutY="83.0" text="Male">
+    <JFXRadioButton fx:id="male" layoutX="278.0" layoutY="83.0" text="Male">
         <font>
             <Font name="Tahoma" size="15.0" />
         </font>
     </JFXRadioButton>
-    <JFXRadioButton fx:id="female" layoutX="387.0" layoutY="83.0" text="Female">
+    <JFXRadioButton fx:id="female" layoutX="353.0" layoutY="83.0" text="Female">
         <font>
             <Font name="Tahoma" size="15.0" />
         </font>
     </JFXRadioButton>
-    <Label layoutX="521.0" layoutY="81.0" prefHeight="24.0" prefWidth="40.0" text="From" textFill="#6b6565">
+    <Label layoutX="537.0" layoutY="81.0" prefHeight="24.0" prefWidth="40.0" text="From" textFill="#6b6565">
         <font>
             <Font name="Tahoma Bold" size="12.0" />
         </font>
     </Label>
-    <DatePicker fx:id="fromDate" layoutX="570.0" layoutY="80.0" />
-    <Label layoutX="787.0" layoutY="81.0" prefHeight="24.0" prefWidth="25.0" text="To" textFill="#6b6565">
+    <DatePicker fx:id="fromDate" layoutX="582.0" layoutY="78.0" />
+    <Label layoutX="790.0" layoutY="80.0" prefHeight="24.0" prefWidth="25.0" text="To" textFill="#6b6565">
         <font>
             <Font name="Tahoma Bold" size="12.0" />
         </font>
@@ -64,5 +62,10 @@
             <Font size="17.0" />
         </font>
     </JFXButton>
-    <DatePicker fx:id="toDate" layoutX="821.0" layoutY="79.0" />
+    <DatePicker fx:id="toDate" layoutX="821.0" layoutY="77.0" />
+   <JFXRadioButton fx:id="both" layoutX="446.0" layoutY="83.0" text="both">
+      <font>
+         <Font name="Tahoma" size="15.0" />
+      </font>
+   </JFXRadioButton>
 </AnchorPane>

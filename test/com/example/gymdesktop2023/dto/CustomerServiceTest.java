@@ -51,7 +51,10 @@ class CustomerServiceTest {
 
     @Test
     void fetchQualifiedOfflineCustomers() throws SQLException {
-        System.out.println(CustomerService.fetchQualifiedOfflineCustomers(LocalDate.now().minusDays(200)
+
+        System.out.println(CustomerService.fetchQualifiedOfflineCustomers("SELECT * FROM customers",LocalDate.now().minusDays(200)
                 ,LocalDate.now().plusDays(200)));
     }
+
+
 }

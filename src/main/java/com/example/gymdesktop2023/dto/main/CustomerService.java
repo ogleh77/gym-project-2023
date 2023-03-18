@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Collections;
 
 public class CustomerService {
     private static final CustomerModel customerModel = new CustomerModel();
@@ -65,8 +66,13 @@ public class CustomerService {
     public static ObservableList<Customers> fetchQualifiedOfflineCustomers(String customerQuery, LocalDate fromDate, LocalDate toDate) throws SQLException {
         String from = fromDate.toString();
         String to = toDate.toString();
+        ObservableList<Customers> offlineCustomers =
+                customerModel.fetchQualifiedOfflineCustomers(customerQuery, from, to);
+        Collections.sort(offlineCustomers);
 
-        return customerModel.fetchQualifiedOfflineCustomers(customerQuery, from, to);
+        System.out.println("I Service \n");
+        System.out.println(offlineCustomers);
+        return offlineCustomers;
     }
 
 

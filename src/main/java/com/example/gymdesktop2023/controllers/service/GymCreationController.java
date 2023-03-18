@@ -163,6 +163,7 @@ public class GymCreationController extends CommonClass implements Initializable 
     void cancelHandler(MouseEvent mouseEvent) {
     }
 
+
     @FXML
     void updateHandler() {
         try {
@@ -190,4 +191,5 @@ public class GymCreationController extends CommonClass implements Initializable 
         }
 
     }
+
 }

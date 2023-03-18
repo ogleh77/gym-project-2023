@@ -9,7 +9,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -17,16 +16,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -52,17 +50,18 @@ public class OutDatedController extends CommonClass implements Initializable {
     @FXML
     private DatePicker toDate;
 
-    private ObservableList<Customers> outDatedCustomers;
     @FXML
     private JFXButton searchBtn;
+    @FXML
+    private JFXRadioButton both;
     private int column = 0;
     private int row = 0;
-    private int perPage = 6;
+    private int perPage = 4;
+    private ObservableList<Customers> outDatedCustomers;
     private final ToggleGroup toggleGroup;
 
     public OutDatedController() {
         this.toggleGroup = new ToggleGroup();
-        this.outDatedCustomers = FXCollections.observableArrayList();
     }
 
     @Override
@@ -72,40 +71,32 @@ public class OutDatedController extends CommonClass implements Initializable {
             toDate.setValue(LocalDate.now());
             male.setToggleGroup(toggleGroup);
             female.setToggleGroup(toggleGroup);
+            both.setToggleGroup(toggleGroup);
+            both.setSelected(true);
             shift.setItems(super.getShift());
             shift.getItems().add("All");
             shift.setValue("All");
             getMandatoryFields().addAll(fromDate, toDate);
-            pagination.setPageFactory(this::createPage);
-          ///  pagination.setPageCount(20);
         });
 
         service.setOnSucceeded(e -> {
             searchBtn.setGraphic(null);
             searchBtn.setText("Search");
-            //Collections.sort(outDatedCustomers);
-            //pagination.setPageFactory(outDatedCustomers.isEmpty() ? this::vBox : this::createPage);
-
             pagination.setPageFactory(this::createPage);
-         //   pagination.setPageCount(outDatedCustomers.isEmpty() ? 0 : 20);
-//            System.out.println("\n");
-//            System.out.println("Done...");
-
 
         });
+
     }
 
     @FXML
-    void searchHandler() {
+    void searchHandler() throws SQLException {
         if (isValid(getMandatoryFields(), null)) {
             if (start) {
                 service.restart();
                 searchBtn.setGraphic(getLoadingImageView());
-                searchBtn.setText("Searching");
-            } else {
+             } else {
                 service.start();
                 searchBtn.setGraphic(getLoadingImageView());
-                searchBtn.setText("Searching");
                 start = true;
             }
         } else {
@@ -114,24 +105,21 @@ public class OutDatedController extends CommonClass implements Initializable {
 
     }
 
-
     private GridPane createPage(int index) {
-        int fromPage = perPage * index;
-        int toIndex = Math.min(fromPage + perPage, 20);
+        column = 0;
 
+        int fromPage = perPage * index;
+        int toIndex = Math.min(fromPage + perPage, outDatedCustomers.size());
 
         GridPane gridView = null;
         try {
 
             gridView = new GridPane();
-            gridView.setHgap(10);
-            gridView.setPadding(new Insets(40, 50, 10, 50));
-
             FXMLLoader loader;
             AnchorPane anchorPane;
+            gridView.setPadding(new Insets(40, 50, 10, 50));
 
             for (int i = fromPage; i < toIndex; i++) {
-                System.out.println("I have " + outDatedCustomers.get(i));
                 if (column == 2) {
                     column = 0;
                     row++;
@@ -140,10 +128,12 @@ public class OutDatedController extends CommonClass implements Initializable {
                 loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/com/example/gymdesktop2023/views/service/customer-card.fxml"));
                 anchorPane = loader.load();
-
+                GridPane.setMargin(anchorPane, new Insets(10));
                 CardController controller = loader.getController();
-                controller.setI(i);
-             }
+                controller.setCustomer(outDatedCustomers.get(i));
+                gridView.add(anchorPane, column++, row);
+
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -152,27 +142,25 @@ public class OutDatedController extends CommonClass implements Initializable {
         return gridView;
     }
 
-    private VBox vBox(int index) {
-        VBox vBox = new VBox();
-        vBox.setPrefSize(200, 200);
-        Label label = new Label("No outdated meners found at " + fromDate.getValue() + " to " + toDate.getValue());
-
-        vBox.setAlignment(Pos.CENTER);
-        vBox.getChildren().add(label);
-        return vBox;
-
-    }
-
     private String customerQuery() {
+        String ganderSelected = "";
         String query = "SELECT * FROM customers ";
-        String ganderSelected = male.isSelected() ? "Male" : "Female";
+        if (male.isSelected()) {
+            ganderSelected = "Male";
+        } else if (female.isSelected()) {
+            ganderSelected = "Female";
+        } else if (both.isSelected()) {
+            ganderSelected = "";
+        }
+
         if (activeUser.getRole().equals("super_admin")) {
-            query += "WHERE gander='" + ganderSelected + "'";
+            query += both.isSelected() ? "" : "WHERE gander='" + ganderSelected + "'";
         } else if (activeUser.getRole().equals("admin")) {
             query += " WHERE gander='" + activeUser.getGender() + "'";
         }
+
         if (!shift.getValue().equals("All")) {
-            query += "AND shift='" + shift.getValue() + "'";
+            query += both.isSelected() ? "WHERE shift='" + shift.getValue() + "'" : "AND shift='" + shift.getValue() + "'";
         }
         return query;
     }
@@ -185,11 +173,15 @@ public class OutDatedController extends CommonClass implements Initializable {
         if (activeUser.getRole().equals("admin")) {
             male.setSelected(activeUser.getGender().equals("Male"));
             female.setSelected(activeUser.getGender().equals("Female"));
-
             male.setDisable(true);
             female.setDisable(true);
-
         }
+
+        service.setOnSucceeded(e -> {
+            searchBtn.setGraphic(null);
+            searchBtn.setText("Search");
+            pagination.setPageFactory(this::createPage);
+        });
     }
 
 
@@ -203,8 +195,8 @@ public class OutDatedController extends CommonClass implements Initializable {
                     try {
                         String customerQuery = customerQuery();
 
-                        outDatedCustomers = CustomerService.fetchQualifiedOfflineCustomers(customerQuery, fromDate.getValue(),
-                                toDate.getValue());
+                        outDatedCustomers = CustomerService.fetchQualifiedOfflineCustomers(customerQuery, fromDate.getValue(), toDate.getValue());
+                        System.out.println("Hash I returned in service" + outDatedCustomers);
 
                     } catch (Exception e) {
                         Platform.runLater(() -> errorMessage(e.getMessage()));

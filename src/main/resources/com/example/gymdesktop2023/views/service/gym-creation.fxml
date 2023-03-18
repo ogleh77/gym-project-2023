@@ -37,9 +37,7 @@
                     <Insets left="10.0" />
                 </HBox.margin>
                 <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../style/icons/icons8-close-30.png" />
-                    </image>
+                    <Image url="@../../style/icons/icons8-close-30.png" />
                 </ImageView>
             </HBox>
         </HBox>
@@ -68,7 +66,7 @@
             <Font name="Arial Bold" size="14.0" />
         </font>
     </Label>
-    <Label fx:id="message" layoutX="29.0" layoutY="508.0" text="shayga aad donayso inad wax ku darto ama wax ka bedesho" />
+    <Label layoutX="29.0" layoutY="508.0" text="shayga aad donayso inad wax ku darto ama wax ka bedesho" />
     <Separator layoutX="244.0" layoutY="420.0" prefWidth="200.0" />
     <Label layoutX="245.0" layoutY="129.0" prefHeight="16.0" prefWidth="139.0" text="Qiimaha khanadaha" textFill="#46749f">
         <font>

@@ -1,6 +1,5 @@
 package com.example.gymdesktop2023.entity.main;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -118,7 +117,7 @@ public class Customers implements Comparable<Customers> {
 
     @Override
     public int compareTo(Customers o) {
-        if (this.customerId < o.customerId)
+        if (this.customerId > o.customerId)
             return 1;
         return 0;
     }
