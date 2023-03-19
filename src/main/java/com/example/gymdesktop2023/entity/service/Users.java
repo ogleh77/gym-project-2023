@@ -2,15 +2,15 @@ package com.example.gymdesktop2023.entity.service;
 
 public class Users {
     private int userId;
-    private final String firstName;
-    private final String lastName;
-    private final String phone;
-    private final String gender;
-    private final String shift;
-    private final String username;
-    private  String password;
-    private final String image;
-    private final String role;
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private String gender;
+    private String shift;
+    private String username;
+    private String password;
+    private String image;
+    private String role;
 
 
     public Users(int userId, String firstName, String lastName, String phone, String gender, String shift, String username, String password, String image, String role) {
@@ -80,6 +80,38 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setShift(String shift) {
+        this.shift = shift;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     //    @Override

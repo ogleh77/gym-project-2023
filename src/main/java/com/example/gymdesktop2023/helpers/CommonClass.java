@@ -17,8 +17,11 @@ import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 
 public abstract class CommonClass {
     protected File selectedFile;
@@ -38,6 +41,7 @@ public abstract class CommonClass {
     protected Users activeUser;
 
     protected BorderPane borderPane;
+    public boolean imageUploaded = false;
 
     //protected Gym currentGym;
     public final String[] images = {
@@ -224,14 +228,36 @@ public abstract class CommonClass {
     public void setBorderPane(BorderPane borderPane) {
         this.borderPane = borderPane;
     }
-//    public void setCurrentGym(Gym currentGym) {
-//        this.currentGym = currentGym;
-//    }
 
+    public void uploadImage(ImageView imageView) {
+        try {
+            if (selectedFile() != null) {
+                Image image = new Image(new FileInputStream(selectedFile.getAbsolutePath()));
+                imageView.setImage(image);
+                imageView.setX(50);
+                imageView.setY(25);
+                imageUploaded = true;
+            }
+        } catch (FileNotFoundException e) {
+            errorMessage("Fadlan sawirka lama helin isku day mar kale");
+            imageUploaded = false;
+        }
+    }
 
-//    public void setTitle(Label title) {
-//        title.setText(currentGym.getGymName().toUpperCase() + "| eDahab: " +
-//                currentGym.geteDahab() + "| Zaad: " + currentGym.getZaad());
-//    }
+    public void checkImage(ImageView imageView,String title) {
+        ButtonType ok = new ButtonType("Hada soo upload-garee", ButtonBar.ButtonData.OK_DONE);
+        ButtonType cancel = new ButtonType("Ogaan baan u dhaafay.", ButtonBar.ButtonData.CANCEL_CLOSE);
+        Alert alert = new Alert(Alert.AlertType.WARNING, title, ok, cancel);
+        alert.setTitle("Sawir lama helin");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ok) {
+            uploadImage(imageView);
+        } else {
+            imageUploaded = true;
+        }
+    }
+
 
 }

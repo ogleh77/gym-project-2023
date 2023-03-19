@@ -8,13 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/info/OutDatedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/info/OutDatedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/service/GymCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/service/GymCreationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dto/main/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/info/notifications.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/info/notifications.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/gym-creation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/service/gym-creation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/example/gymdesktop2023/dto/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/example/gymdesktop2023/dto/CustomerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/service/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/service/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -206,7 +201,10 @@
       <workItem from="1679118360956" duration="3686000" />
       <workItem from="1679122246649" duration="37000" />
       <workItem from="1679122467818" duration="150000" />
-      <workItem from="1679122952921" duration="642000" />
+      <workItem from="1679122952921" duration="2374000" />
+      <workItem from="1679145105503" duration="7469000" />
+      <workItem from="1679203375554" duration="1084000" />
+      <workItem from="1679205551821" duration="13000" />
     </task>
     <servers />
   </component>

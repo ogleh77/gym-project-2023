@@ -1,6 +1,6 @@
 package com.example.gymdesktop2023;
 
-import com.example.gymdesktop2023.controllers.info.OutDatedController;
+import com.example.gymdesktop2023.controllers.service.UserUpdatingController;
 import com.example.gymdesktop2023.dto.service.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +14,12 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymdesktop2023/views/info/notifications.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymdesktop2023/views/service/update-user.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        OutDatedController controller = fxmlLoader.getController();
+        UserUpdatingController controller = fxmlLoader.getController();
         controller.setActiveUser(UserService.users().get(0));
+//        OutDatedController controller = fxmlLoader.getController();
+//        controller.setActiveUser(UserService.users().get(0));
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
