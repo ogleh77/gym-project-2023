@@ -1,7 +1,8 @@
 package com.example.gymdesktop2023.controllers.service;
 
-import com.example.gymdesktop2023.dto.service.UserService;
-import com.example.gymdesktop2023.entity.service.Users;
+import com.example.gymdesktop2023.dao.UserService;
+import com.example.gymdesktop2023.entity.Users;
+import com.example.gymdesktop2023.entity.UsersBuilder;
 import com.example.gymdesktop2023.helpers.CommonClass;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -23,7 +24,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class UserCreationController extends CommonClass implements Initializable {
-
     @FXML
     private JFXRadioButton admin;
 
@@ -85,21 +85,23 @@ public class UserCreationController extends CommonClass implements Initializable
 
     @FXML
     void createUserHandler() {
-        if (isValid(getMandatoryFields(), genderGroup)) {
-            if (!imageUploaded) {
-                checkImage();
-            }
-            if (start) {
-                service.restart();
-                createBtn.setGraphic(getLoadingImageView());
-                createBtn.setText("Creating");
-            } else {
-                service.start();
-                createBtn.setGraphic(getLoadingImageView());
-                createBtn.setText("Creating");
-                start = true;
-            }
-        }
+        System.out.println(users());
+
+//        if (isValid(getMandatoryFields(), genderGroup)) {
+//            if (!imageUploaded) {
+//                checkImage();
+//            }
+//            if (start) {
+//                service.restart();
+//                createBtn.setGraphic(getLoadingImageView());
+//                createBtn.setText("Creating");
+//            } else {
+//                service.start();
+//                createBtn.setGraphic(getLoadingImageView());
+//                createBtn.setText("Creating");
+//                start = true;
+//            }
+//        }
     }
 
     @FXML
@@ -112,8 +114,19 @@ public class UserCreationController extends CommonClass implements Initializable
         String gander = male.isSelected() ? "Male" : "Female";
         String role = superAdmin.isSelected() ? "super_admin" : "admin";
 
-        return new Users(firstname.getText().trim(), lastname.getText().trim(), phone.getText().trim(), gander,
-                shift.getValue(), username.getText().trim(), oldPassword.getText().trim(), image, role);
+        Users user = new UsersBuilder()
+                .setFirstName(firstname.getText().trim())
+                .setPhone(phone.getText().trim())
+                .setUsername(username.getText().trim())
+                .setPassword(oldPassword.getText().trim())
+                .setImage(image)
+                .setGender(gander)
+                .setRole(role)
+                .setShift(shift.getValue().trim())
+                .build();
+
+
+        return user;
     }
 
     private final Service<Void> service = new Service<>() {

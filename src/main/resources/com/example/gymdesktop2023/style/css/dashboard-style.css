@@ -20,12 +20,12 @@
     -fx-text-fill: #efe7e7;
 }
 .side-btn:hover {
-    -fx-background-color: #4EAD61;
+    -fx-background-color: #3aa7c7;
     -fx-cursor: hand;
 }
 
 .menu:hover {
-    -fx-background-color: #4EAD61;
+    -fx-background-color: #3aa7c7;
     -fx-cursor: hand;
 }
 .cancel:hover {

@@ -6,7 +6,6 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,18 +19,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane styleClass="dash-pane" stylesheets="@../../style/css/dashboard-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymdesktop2023.controllers.main.DashboardController">
-    <BorderPane fx:id="borderPane" prefHeight="802.0" prefWidth="1403.0">
+<StackPane styleClass="dash-pane" stylesheets="@../style/css/dashboard-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymdesktop2023.controllers.main.DashboardController">
+    <BorderPane prefHeight="802.0" prefWidth="1403.0">
         <top>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="top-pane" BorderPane.alignment="CENTER">
                 <HBox prefHeight="45.0" prefWidth="499.0">
                     <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="604.0">
-                        <HBox fx:id="menuHBox" onMouseClicked="#menuToggle" prefHeight="40.0" prefWidth="37.0" styleClass="menu" visible="false">
+                        <HBox prefHeight="40.0" prefWidth="37.0" styleClass="menu" visible="false">
                             <HBox.margin>
                                 <Insets bottom="5.0" left="5.0" top="5.0" />
                             </HBox.margin>
                             <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../../style/icons/icons8-menu-30.png" />
+                                <Image url="@../style/icons/icons8-menu-30.png" />
                             </ImageView>
                         </HBox>
                         <Label prefHeight="33.0" prefWidth="492.0" text="Togdheer fitness center" textFill="#fffbfb">
@@ -41,24 +40,16 @@
                         </Label>
                     </HBox>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="45.0" prefWidth="428.0" HBox.hgrow="ALWAYS">
-                    <Label prefHeight="33.0" prefWidth="71.0" text="Search" textFill="#fffbfb">
-                        <font>
-                            <Font name="Arial Bold" size="19.0" />
-                        </font>
-                    </Label>
-                    <TextField editable="false" prefHeight="31.0" prefWidth="315.0" styleClass="text-field" />
-                </HBox>
-                <HBox fx:id="topProfile" alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="466.0" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="864.0" HBox.hgrow="ALWAYS">
                     <HBox.margin>
-                        <Insets left="5.0" />
+                        <Insets left="50.0" />
                     </HBox.margin>
-                    <Circle fx:id="activeProfile" fill="DODGERBLUE" radius="19.0" stroke="#048be4" strokeLineCap="ROUND">
+                    <Circle fill="DODGERBLUE" radius="19.0" stroke="#048be4" strokeLineCap="ROUND">
                         <HBox.margin>
                             <Insets bottom="1.0" top="1.0" />
                         </HBox.margin>
                     </Circle>
-                    <Label fx:id="activeUserName" prefHeight="26.0" prefWidth="213.0" text="Mohamed Ogleh" textFill="#fffbfb">
+                    <Label prefHeight="26.0" prefWidth="213.0" text="Mohamed Ogleh" textFill="#fffbfb">
                         <font>
                             <Font name="Arial Black" size="17.0" />
                         </font>
@@ -66,18 +57,18 @@
                             <Insets left="10.0" />
                         </HBox.margin>
                     </Label>
-                    <StackPane fx:id="notificationsHBox" onMouseClicked="#warningHandler" prefHeight="41.0" prefWidth="55.0" styleClass="menu">
+                    <StackPane prefHeight="41.0" prefWidth="55.0" styleClass="menu">
                         <HBox.margin>
                             <Insets bottom="2.0" left="15.0" top="2.0" />
                         </HBox.margin>
                         <ImageView fitHeight="27.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../../style/icons/icons8-bell-48.png" />
+                            <Image url="@../style/icons/icons8-bell-48.png" />
                         </ImageView>
-                        <HBox fx:id="warningLabelParent" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="23.0" styleClass="notify-circle">
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="23.0" styleClass="notify-circle">
                             <StackPane.margin>
                                 <Insets left="20.0" top="-20.0" />
                             </StackPane.margin>
-                            <Label fx:id="warningLabel" text="9+" textFill="WHITE">
+                            <Label text="9+">
                                 <font>
                                     <Font name="System Bold" size="13.0" />
                                 </font>
@@ -88,14 +79,14 @@
                         <HBox.margin>
                             <Insets left="36.0" />
                         </HBox.margin>
-                        <HBox alignment="CENTER" onMouseClicked="#maximizeHandler" prefHeight="37.0" prefWidth="44.0" styleClass="menu">
+                        <HBox alignment="CENTER" prefHeight="37.0" prefWidth="44.0" styleClass="menu">
                             <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../../style/icons/icons8-collapse-30.png" />
+                                <Image url="@../style/icons/icons8-collapse-30.png" />
                             </ImageView>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="37.0" prefWidth="44.0" styleClass="cancel">
                             <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-close-30.png" />
+                                <Image url="@../style/icons/icons8-close-30.png" />
                             </ImageView>
                         </HBox>
                     </HBox>
@@ -111,11 +102,11 @@
                         </font>
                     </Text>
                 </VBox>
-                <HBox alignment="CENTER_LEFT" layoutX="392.0" layoutY="338.0" onMouseClicked="#registrationHandler" prefHeight="68.0" prefWidth="344.0" styleClass="menu-hover">
+                <HBox alignment="CENTER_LEFT" layoutX="392.0" layoutY="338.0" prefHeight="68.0" prefWidth="344.0" styleClass="menu-hover">
                     <JFXButton buttonType="RAISED" prefHeight="59.0" prefWidth="75.0" style="-fx-background-color: #3a6188#3a6188;" text=".">
                         <graphic>
                             <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-registration-30.png" />
+                                <Image url="@../style/icons/icons8-registration-30.png" />
                             </ImageView>
                         </graphic>
                         <HBox.margin>
@@ -141,7 +132,7 @@
                         </Text>
                     </VBox>
                 </HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="392.0" layoutY="245.0" onMouseClicked="#homeClickHandler" prefHeight="68.0" prefWidth="344.0" styleClass="menu-hover">
+                <HBox alignment="CENTER_LEFT" layoutX="392.0" layoutY="245.0" prefHeight="68.0" prefWidth="344.0" styleClass="menu-hover">
                     <StackPane>
                         <HBox.margin>
                             <Insets left="10.0" />
@@ -149,7 +140,7 @@
                         <JFXButton buttonType="RAISED" prefHeight="59.0" prefWidth="75.0" style="-fx-background-color: #3a6188#3a6188;" text=".">
                             <graphic>
                                 <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-home-24.png" />
+                                    <Image url="@../style/icons/icons8-home-24.png" />
                                 </ImageView>
                             </graphic>
                         </JFXButton>
@@ -177,7 +168,7 @@
                     <JFXButton buttonType="RAISED" prefHeight="59.0" prefWidth="75.0" style="-fx-background-color: #3a6188#3a6188;" text=".">
                         <graphic>
                             <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-user-30.png" />
+                                <Image url="@../style/icons/icons8-user-30.png" />
                             </ImageView>
                         </graphic>
                         <HBox.margin>
@@ -207,7 +198,7 @@
                     <JFXButton buttonType="RAISED" prefHeight="59.0" prefWidth="75.0" style="-fx-background-color: #3a6188#3a6188;" text=".">
                         <graphic>
                             <ImageView fitHeight="36.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/whiteadduser.png" />
+                                <Image url="@../style/icons/whiteadduser.png" />
                             </ImageView>
                         </graphic>
                         <HBox.margin>
@@ -237,7 +228,7 @@
                     <JFXButton buttonType="RAISED" prefHeight="59.0" prefWidth="75.0" style="-fx-background-color: #3a6188#3a6188;" text=".">
                         <graphic>
                             <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-business-report-50.png" />
+                                <Image url="@../style/icons/icons8-business-report-50.png" />
                             </ImageView>
                         </graphic>
                         <HBox.margin>
@@ -266,7 +257,7 @@
             </AnchorPane>
         </center>
         <left>
-            <VBox fx:id="sidePane" alignment="TOP_CENTER" prefHeight="755.0" prefWidth="159.0" spacing="25.0" styleClass="side-pane" BorderPane.alignment="CENTER">
+            <VBox alignment="TOP_CENTER" prefHeight="755.0" prefWidth="159.0" spacing="25.0" styleClass="side-pane" BorderPane.alignment="CENTER">
                 <effect>
                     <DropShadow radius="7.775" width="12.1">
                         <color>
@@ -277,9 +268,9 @@
                 <BorderPane.margin>
                     <Insets top="2.0" />
                 </BorderPane.margin>
-                <Label text="Customer care" textFill="#dddcdc">
+                <Label text="Customer care" textFill="#fff6f6">
                     <font>
-                        <Font name="Arial Bold" size="13.0" />
+                        <Font name="Arial Black" size="12.0" />
                     </font>
                     <VBox.margin>
                         <Insets right="70.0" top="80.0" />
@@ -293,7 +284,7 @@
                 <JFXButton buttonType="RAISED" prefHeight="35.0" prefWidth="159.0" styleClass="side-btn" text="Dashboard" textFill="#e8dcdc">
                     <graphic>
                         <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-dashboard-layout-24.png" />
+                            <Image url="@../style/icons/icons8-dashboard-layout-24.png" />
                         </ImageView>
                     </graphic>
                     <VBox.margin>
@@ -303,20 +294,20 @@
                         <Font name="Arial" size="18.0" />
                     </font>
                 </JFXButton>
-                <JFXButton buttonType="RAISED" onAction="#homeClickHandler" prefHeight="37.0" prefWidth="163.0" styleClass="side-btn" text="Home data" textFill="#e8dcdc">
+                <JFXButton buttonType="RAISED" prefHeight="37.0" prefWidth="163.0" styleClass="side-btn" text="Home data" textFill="#e8dcdc">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-home-24.png" />
+                            <Image url="@../style/icons/icons8-home-24.png" />
                         </ImageView>
                     </graphic>
                     <font>
                         <Font name="Arial" size="18.0" />
                     </font>
                 </JFXButton>
-                <JFXButton buttonType="RAISED" onAction="#registrationHandler" styleClass="side-btn" text="Registrations" textFill="#e8dcdc">
+                <JFXButton buttonType="RAISED" styleClass="side-btn" text="Registrations" textFill="#e8dcdc">
                     <graphic>
                         <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-registration-30.png" />
+                            <Image url="@../style/icons/icons8-registration-30.png" />
                         </ImageView>
                     </graphic>
                     <font>
@@ -339,7 +330,7 @@
                 <JFXButton buttonType="RAISED" prefHeight="37.0" prefWidth="164.0" styleClass="side-btn" text="Reports" textFill="#e8dcdc">
                     <graphic>
                         <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-business-report-50.png" />
+                            <Image url="@../style/icons/icons8-business-report-50.png" />
                         </ImageView>
                     </graphic>
                     <font>
@@ -349,7 +340,7 @@
                 <JFXButton buttonType="RAISED" prefHeight="46.0" prefWidth="176.0" styleClass="side-btn" text="Out dated" textFill="#e8dcdc">
                     <graphic>
                         <ImageView fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-user-30.png" />
+                            <Image url="@../style/icons/icons8-user-30.png" />
                         </ImageView>
                     </graphic>
                     <font>
@@ -361,28 +352,28 @@
                         <MenuItem mnemonicParsing="false" text="Backup">
                             <graphic>
                                 <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@../../style/icons/backup.png" />
+                                    <Image url="@../style/icons/backup.png" />
                                 </ImageView>
                             </graphic>
                         </MenuItem>
-                        <MenuItem mnemonicParsing="false" text="Add user">
+                        <MenuItem mnemonicParsing="false" onAction="#addUserHandler" text="Add user">
                             <graphic>
                                 <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@../../style/icons/adduser.png" />
+                                    <Image url="@../style/icons/adduser.png" />
                                 </ImageView>
                             </graphic>
                         </MenuItem>
                         <MenuItem mnemonicParsing="false" text="Update user">
                             <graphic>
                                 <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@../../style/icons/icons8-available-updates-24.png" />
+                                    <Image url="@../style/icons/icons8-account-50.png" />
                                 </ImageView>
                             </graphic>
                         </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#gymHandler" text="GYM">
+                        <MenuItem mnemonicParsing="false" text="GYM">
                             <graphic>
                                 <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                    <Image url="@../../style/icons/icons8-barbell-50.png" />
+                                    <Image url="@../style/icons/icons8-barbell-50.png" />
                                 </ImageView>
                             </graphic>
                         </MenuItem>
@@ -396,7 +387,7 @@
                     </effect>
                     <graphic>
                         <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../../../../../../../../../gym-2023/src/main/resources/com/example/gym/style/icons/icons8-settings-24.png" />
+                            <Image url="@../style/icons/icons8-settings-24.png" />
                         </ImageView>
                     </graphic>
                 </MenuButton>

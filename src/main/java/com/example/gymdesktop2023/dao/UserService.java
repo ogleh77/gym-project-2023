@@ -1,6 +1,6 @@
-package com.example.gymdesktop2023.dto.service;
+package com.example.gymdesktop2023.dao;
 
-import com.example.gymdesktop2023.entity.service.Users;
+import com.example.gymdesktop2023.entity.Users;
 import com.example.gymdesktop2023.helpers.CustomException;
 import com.example.gymdesktop2023.models.service.UserModel;
 import javafx.collections.ObservableList;

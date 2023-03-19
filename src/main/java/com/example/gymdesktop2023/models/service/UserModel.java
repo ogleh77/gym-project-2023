@@ -1,6 +1,6 @@
 package com.example.gymdesktop2023.models.service;
 
-import com.example.gymdesktop2023.entity.service.Users;
+import com.example.gymdesktop2023.entity.Users;
 import com.example.gymdesktop2023.helpers.DbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
