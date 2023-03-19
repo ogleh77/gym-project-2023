@@ -85,23 +85,23 @@ public class UserCreationController extends CommonClass implements Initializable
 
     @FXML
     void createUserHandler() {
-        System.out.println(users());
 
-//        if (isValid(getMandatoryFields(), genderGroup)) {
-//            if (!imageUploaded) {
-//                checkImage();
-//            }
-//            if (start) {
-//                service.restart();
-//                createBtn.setGraphic(getLoadingImageView());
-//                createBtn.setText("Creating");
-//            } else {
-//                service.start();
-//                createBtn.setGraphic(getLoadingImageView());
-//                createBtn.setText("Creating");
-//                start = true;
-//            }
-//        }
+        if (isValid(getMandatoryFields(), genderGroup)) {
+            System.out.println(users());
+            if (!imageUploaded) {
+                checkImage();
+            }
+            if (start) {
+                service.restart();
+                createBtn.setGraphic(getLoadingImageView());
+                createBtn.setText("Creating");
+            } else {
+                service.start();
+                createBtn.setGraphic(getLoadingImageView());
+                createBtn.setText("Creating");
+                start = true;
+            }
+        }
     }
 
     @FXML
@@ -109,14 +109,17 @@ public class UserCreationController extends CommonClass implements Initializable
         uploadImage();
     }
 
+
     private Users users() {
         String image = selectedFile != null ? selectedFile.getAbsolutePath() : null;
         String gander = male.isSelected() ? "Male" : "Female";
         String role = superAdmin.isSelected() ? "super_admin" : "admin";
 
-        Users user = new UsersBuilder()
+
+        return new UsersBuilder()
                 .setFirstName(firstname.getText().trim())
                 .setPhone(phone.getText().trim())
+                .setLastName(lastname.getText().trim())
                 .setUsername(username.getText().trim())
                 .setPassword(oldPassword.getText().trim())
                 .setImage(image)
@@ -124,9 +127,6 @@ public class UserCreationController extends CommonClass implements Initializable
                 .setRole(role)
                 .setShift(shift.getValue().trim())
                 .build();
-
-
-        return user;
     }
 
     private final Service<Void> service = new Service<>() {
