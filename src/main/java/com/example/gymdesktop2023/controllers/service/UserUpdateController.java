@@ -12,7 +12,10 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -61,9 +64,6 @@ public class UserUpdateController extends CommonClass implements Initializable {
     private JFXRadioButton superAdmin;
 
     @FXML
-    private Label topText;
-
-    @FXML
     private JFXButton updateBtn;
 
     @FXML
@@ -75,41 +75,11 @@ public class UserUpdateController extends CommonClass implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Platform.runLater(() -> {
-            initFields();
-            try {
-                chooseUser.setItems(UserService.users());
-                chooseUser.getItems().remove(activeUser);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-        });
+        Platform.runLater(this::initFields);
         service.setOnSucceeded(e -> {
             updateBtn.setGraphic(null);
         });
     }
-
-
-    @FXML
-    void choiceUserHandler() {
-        setUser(chooseUser.getValue());
-        String image = selectedFile != null ? selectedFile.getAbsolutePath() : null;
-        String gander = male.isSelected() ? "Male" : "Female";
-        String role = superAdmin.isSelected() ? "super_admin" : "admin";
-        user = new UsersBuilder().setUserId(chooseUser.getValue() == null ? activeUser.getUserId() : chooseUser.getValue().getUserId())
-                .setFirstName(firstname.getText().trim())
-                .setPhone(phone.getText().trim())
-                .setLastName(lastname.getText().trim())
-                .setUsername(username.getText().trim())
-                .setPassword(password.getText().trim())
-                .setImage(image)
-                .setGender(gander)
-                .setRole(role)
-                .setShift(shift.getValue().trim())
-                .build();
-    }
-
 
     @FXML
     void updateHandler(ActionEvent event) {
@@ -131,7 +101,7 @@ public class UserUpdateController extends CommonClass implements Initializable {
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
-        // setUser(activeUser);
+        setUser(activeUser);
     }
 
     private Users users() {
@@ -141,7 +111,7 @@ public class UserUpdateController extends CommonClass implements Initializable {
 
 
         return new UsersBuilder()
-                .setUserId(chooseUser.getValue() == null ? activeUser.getUserId() : chooseUser.getValue().getUserId())
+                .setUserId(activeUser.getUserId())
                 .setFirstName(firstname.getText().trim())
                 .setPhone(phone.getText().trim())
                 .setLastName(lastname.getText().trim())

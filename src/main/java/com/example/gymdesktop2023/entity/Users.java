@@ -139,23 +139,9 @@ public class Users {
         this.role.set(role);
     }
 
-//    @Override
-//    public String toString() {
-//        return "[" + username + " role:- " + role + "]\n";
-//    }
     @Override
     public String toString() {
-        return "Users{" +
-                "userId=" + userId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", gender='" + gender + '\'' +
-                ", shift='" + shift + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", image='" + image + '\'' +
-                ", role='" + role + '\'' +
-                '}';
+        return "[username:- " + username.get() + " role:- " + role.getValue() + "]\n";
     }
+
 }
