@@ -35,7 +35,7 @@ public abstract class CommonClass {
     private SlideInLeft slideInLeft;
     private FadeIn fadeIn;
 
-  //  protected Customers customer;
+    //  protected Customers customer;
 
     protected Users activeUser;
 
@@ -220,7 +220,6 @@ public abstract class CommonClass {
 //    }
 
 
-
     public void setActiveUser(Users activeUser) {
         this.activeUser = activeUser;
     }
@@ -244,7 +243,7 @@ public abstract class CommonClass {
         }
     }
 
-    public void checkImage(ImageView imageView,String title) {
+    public void checkImage(ImageView imageView, String title) {
         ButtonType ok = new ButtonType("Hada soo upload-garee", ButtonBar.ButtonData.OK_DONE);
         ButtonType cancel = new ButtonType("Ogaan baan u dhaafay.", ButtonBar.ButtonData.CANCEL_CLOSE);
         Alert alert = new Alert(Alert.AlertType.WARNING, title, ok, cancel);
