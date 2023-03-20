@@ -5,6 +5,7 @@ import animatefx.animation.Shake;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideInRight;
 import com.example.gymdesktop2023.entity.Users;
+import com.example.gymdesktop2023.entity.main.Customers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +36,7 @@ public abstract class CommonClass {
     private SlideInLeft slideInLeft;
     private FadeIn fadeIn;
 
-    //  protected Customers customer;
+    protected Customers customer;
 
     protected Users activeUser;
 
@@ -215,9 +216,9 @@ public abstract class CommonClass {
         return shake;
     }
 
-    //public void setCustomer(Customers customer) {
-//        this.customer = customer;
-//    }
+    public void setCustomer(Customers customer) {
+        this.customer = customer;
+    }
 
 
     public void setActiveUser(Users activeUser) {
