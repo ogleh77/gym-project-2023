@@ -4,6 +4,14 @@
     -fx-background-color: white;
 }
 
+.home-pane {
+    -fx-pref-width: 1150;
+    -fx-pref-height: 750;
+    /*-fx-background-color: #ccddf1;*/
+    /*-fx-background-color: #eff2f6;*/
+-fx-background-color: white;
+}
+
 .top-pane {
     /*-fx-background-color: #e7e8ea;*/
     -fx-pref-width: 1150;
@@ -17,6 +25,16 @@
     -fx-text-fill: white;
     -fx-pref-width: 158;
     -fx-pref-height: 47;
+}
+
+.grid1{
+    -fx-background-color: #d9d2d2;
+}
+.grid2{
+    -fx-background-color: #d3cdcd;
+}
+.grid3{
+    -fx-background-color: #95d3e8;
 }
 
 .btn-upload:hover {

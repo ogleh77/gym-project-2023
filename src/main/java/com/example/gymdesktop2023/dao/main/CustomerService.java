@@ -16,7 +16,7 @@ public class CustomerService {
     private static ObservableList<Customers> offlineCustomers;
     private static ObservableList<Customers> onlineCustomers;
 
-    public static void insertOrUpdateCustomer(Customers customer, boolean newCustomer) throws SQLException {
+    public static void insertOrUpdateCustomer(Customers customer, boolean newCustomer, Users activeUser) throws SQLException {
         try {
             if (newCustomer) {
                 insertCustomer(customer);
@@ -44,6 +44,7 @@ public class CustomerService {
         if (allCustomersList == null) {
             allCustomersList = customerModel.fetchAllCustomers(activeUser);
         }
+        System.out.println("Some one called me and I returned " + allCustomersList.hashCode());
         return allCustomersList;
     }
 

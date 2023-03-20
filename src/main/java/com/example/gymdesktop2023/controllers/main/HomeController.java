@@ -51,7 +51,7 @@ public class HomeController extends CommonClass implements Initializable {
 
     @FXML
     private TableColumn<Customers, JFXButton> update;
-    private ObservableList<Customers> customers;
+    private ObservableList<Customers> customersList;
 
 
     @Override
@@ -77,14 +77,17 @@ public class HomeController extends CommonClass implements Initializable {
         information.setCellValueFactory(new PropertyValueFactory<>("information"));
         update.setCellValueFactory(new PropertyValueFactory<>("update"));
         payments.setCellValueFactory(new PropertyValueFactory<>("paymentBtn"));
-        tableView.setItems(customers);
+        tableView.setItems(customersList);
     }
 
     private void userButtons() {
-        for (Customers customer : customers) {
-            System.out.println("Fetched");
+        for (Customers customer : customersList) {
             EventHandler<MouseEvent> updateHandler = event -> {
-                System.out.println("Update pressed");
+                try {
+                    openUpdate(customer);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             };
             customer.getUpdate().addEventFilter(MouseEvent.MOUSE_CLICKED, updateHandler);
 
@@ -126,13 +129,27 @@ public class HomeController extends CommonClass implements Initializable {
 //        slideInRight.play();
     }
 
+    private void openUpdate(Customers customer) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymdesktop2023/views/main/registrations.fxml"));
+        Scene scene = new Scene(loader.load());
+        RegistrationController controller = loader.getController();
+        controller.setCustomer(customer);
+        controller.setActiveUser(activeUser);
+        System.out.println("The customers I sent " + customersList.hashCode());
+        //  System.out.println(customer);
+//        controller.setCustomers(customersList);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
         try {
-            this.customers = CustomerService.fetchAllCustomer(activeUser);
-            System.out.println(customers);
+            this.customersList = CustomerService.fetchAllCustomer(activeUser);
+
+           System.out.println("I home I have "+customersList);
         } catch (SQLException e) {
             errorMessage(e.getMessage());
         }
