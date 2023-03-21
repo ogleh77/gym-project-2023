@@ -1,5 +1,6 @@
-package com.example.gymdesktop2023.controllers.service;
+package com.example.gymdesktop2023.controllers.users;
 
+import animatefx.animation.FadeOut;
 import com.example.gymdesktop2023.dao.UserService;
 import com.example.gymdesktop2023.entity.Users;
 import com.example.gymdesktop2023.entity.UsersBuilder;
@@ -9,12 +10,13 @@ import com.jfoenix.controls.JFXRadioButton;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -58,22 +60,23 @@ public class UserCreationController extends CommonClass implements Initializable
     private JFXRadioButton superAdmin;
 
     @FXML
-    private Label topText;
-    @FXML
     private Label phoneValidation;
 
     @FXML
     private TextField username;
-
+    @FXML
+    private AnchorPane userCreatePane;
     private boolean imageUploaded = false;
 
     private final ToggleGroup roleToggle = new ToggleGroup();
+    private Stage stage;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
             initFields();
             admin.setSelected(true);
+            stage = (Stage) username.getScene().getWindow();
         });
         phoneValidation();
 
@@ -86,7 +89,8 @@ public class UserCreationController extends CommonClass implements Initializable
     @FXML
     void createUserHandler() {
 
-        if (isValid(getMandatoryFields(), genderGroup)) {
+        if (isValid(getMandatoryFields(), genderGroup) && (phone.getText().length() == 7
+                || !phoneValidation.isVisible())) {
             System.out.println(users());
             if (!imageUploaded) {
                 checkImage();
@@ -105,10 +109,17 @@ public class UserCreationController extends CommonClass implements Initializable
     }
 
     @FXML
-    void imageUploadHandler(ActionEvent event) {
+    void imageUploadHandler() {
         uploadImage();
     }
 
+    @FXML
+    void cancelHandler() {
+        FadeOut fadeOut = new FadeOut(userCreatePane);
+        fadeOut.setSpeed(2);
+        fadeOut.setOnFinished(e -> stage.close());
+        fadeOut.play();
+    }
 
     private Users users() {
         String image = selectedFile != null ? selectedFile.getAbsolutePath() : null;

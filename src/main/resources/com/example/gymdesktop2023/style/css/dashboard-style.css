@@ -1,8 +1,7 @@
 .dash-pane {
     -fx-pref-height: 850;
     -fx-pref-width: 1400;
-    -fx-background-color: #f6f1f1;
-    /*-fx-background-color: white;*/
+    -fx-background-color: #f8f5f5;
 }
 .top-pane {
     -fx-background-color: #328ca8;

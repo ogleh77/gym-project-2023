@@ -9,7 +9,8 @@
     -fx-pref-height: 750;
     /*-fx-background-color: #ccddf1;*/
     /*-fx-background-color: #eff2f6;*/
--fx-background-color: white;
+    -fx-background-color: white;
+    -fx-background-radius: 10;
 }
 
 .top-pane {
@@ -27,13 +28,15 @@
     -fx-pref-height: 47;
 }
 
-.grid1{
+.grid1 {
     -fx-background-color: #d9d2d2;
 }
-.grid2{
+
+.grid2 {
     -fx-background-color: #d3cdcd;
 }
-.grid3{
+
+.grid3 {
     -fx-background-color: #95d3e8;
 }
 

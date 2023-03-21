@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +14,7 @@
 <AnchorPane fx:id="choserPane" prefHeight="400.0" prefWidth="479.0" styleClass="small-pane" stylesheets="@../../style/css/small-pane.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymdesktop2023.controllers.users.UserChooserController">
    <children>
       <ListView fx:id="listView" layoutX="35.0" layoutY="114.0" prefHeight="239.0" prefWidth="527.0" />
-      <JFXButton layoutX="135.0" layoutY="368.0" onAction="#updateHandler" style="-fx-background-color: #2B4865;" text="Update" textFill="#fffbfb">
+      <JFXButton buttonType="RAISED" layoutX="135.0" layoutY="368.0" onAction="#updateHandler" style="-fx-background-color: #2B4865;" text="Update" textFill="#fffbfb">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font>
@@ -25,7 +26,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton layoutX="344.0" layoutY="368.0" onAction="#deleteHandler" prefHeight="37.0" prefWidth="112.0" style="-fx-background-color: red;" text="Delete" textFill="#fffbfb">
+      <JFXButton buttonType="RAISED" layoutX="344.0" layoutY="368.0" onAction="#deleteHandler" prefHeight="37.0" prefWidth="112.0" style="-fx-background-color: red;" text="Delete" textFill="#fffbfb">
          <font>
             <Font name="Helvetica" size="18.0" />
          </font>
@@ -69,4 +70,7 @@
          </children>
       </HBox>
    </children>
+   <effect>
+      <DropShadow height="35.82" radius="17.41" width="35.82" />
+   </effect>
 </AnchorPane>
