@@ -99,7 +99,7 @@ public class CustomerInfoController extends CommonClass implements Initializable
                     //openPendingStage(payment);
                 };
 
-                payment.getPendingBtn().addEventFilter(MouseEvent.MOUSE_CLICKED, pending);
+                //     payment.getPendingBtn().addEventFilter(MouseEvent.MOUSE_CLICKED, pending);
             }
         });
     }

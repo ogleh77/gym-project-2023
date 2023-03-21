@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -58,13 +57,26 @@ public class DashboardController extends CommonClass implements Initializable {
 
     @FXML
     void homeHandler() throws IOException {
-        openWindow("/com/example/gymdesktop2023/views/desing/home.fxml", borderPane, sidePane, menuHBox, warningHBox);
+        FXMLLoader loader = openWindow("/com/example/gymdesktop2023/views/desing/home.fxml", borderPane, sidePane, menuHBox, warningHBox);
+        HomeController controller = loader.getController();
+        controller.setActiveUser(activeUser);
     }
 
     @FXML
     void registrationHandler() throws IOException {
         openWindow("/com/example/gymdesktop2023/views/desing/registrations.fxml", borderPane, sidePane, menuHBox, warningHBox);
     }
+
+    @FXML
+    void outDatedHandler() throws IOException {
+        openWindow("/com/example/gymdesktop2023/views/desing/outdated.fxml", borderPane, sidePane, menuHBox, warningHBox);
+    }
+
+    @FXML
+    void reportsHandler() throws IOException {
+        openWindow("/com/example/gymdesktop2023/views/desing/report.fxml", borderPane, sidePane, menuHBox, warningHBox);
+    }
+
 
     @FXML
     void addUserHandler() throws IOException {
@@ -76,6 +88,17 @@ public class DashboardController extends CommonClass implements Initializable {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
+
+    @FXML
+    void updateUserHandler() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymdesktop2023/views/users/user-choose.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+    }
+
 
     @Override
     public void setActiveUser(Users activeUser) {

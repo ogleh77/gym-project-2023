@@ -37,11 +37,12 @@
 .table-view .column-header-background .label {
     -fx-text-fill: #f3f0f0;
     -fx-padding: 2;
-    -fx-font-family: Tahoma;
+    -fx-font-family: Verdana;
     -fx-font-size: 14;
 }
-.table-view .table-cell{
-    /*-fx-border-color: #3aaacc;*/
+
+.table-view .table-cell {
+    -fx-border-color: #3aaacc;
     -fx-padding: 2 0 2 10px;
 }
 

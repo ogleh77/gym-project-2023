@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -56,61 +54,18 @@ public class HomeController extends CommonClass implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Platform.runLater(() -> {
-            initTable();
-            userButtons();
-        });
+        Platform.runLater(this::initTable);
     }
 
     private void initTable() {
         customerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-
         fullName.setCellValueFactory(customers -> new SimpleStringProperty(
                 customers.getValue().getFirstName() + "   " + customers.getValue().getMiddleName()
                         + "   " + customers.getValue().getLastName()));
-
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
-
         gander.setCellValueFactory(new PropertyValueFactory<>("gander"));
         shift.setCellValueFactory(new PropertyValueFactory<>("shift"));
-
-        information.setCellValueFactory(new PropertyValueFactory<>("information"));
-        update.setCellValueFactory(new PropertyValueFactory<>("update"));
-        payments.setCellValueFactory(new PropertyValueFactory<>("paymentBtn"));
         tableView.setItems(customersList);
-    }
-
-    private void userButtons() {
-        for (Customers customer : customersList) {
-            EventHandler<MouseEvent> updateHandler = event -> {
-                try {
-                    openUpdate(customer);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            };
-            customer.getUpdate().addEventFilter(MouseEvent.MOUSE_CLICKED, updateHandler);
-
-            EventHandler<MouseEvent> paymentHandler = event -> {
-
-                System.out.println("Payment is pressed..");
-                // openPayment(customer);
-
-            };
-
-
-            customer.getPaymentBtn().addEventFilter(MouseEvent.MOUSE_CLICKED, paymentHandler);
-
-            EventHandler<MouseEvent> informationHandler = event -> {
-                System.out.println("information is pressed");
-                try {
-                    openPayment(customer);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            };
-            customer.getInformation().addEventFilter(MouseEvent.MOUSE_CLICKED, informationHandler);
-        }
     }
 
     private void openPayment(Customers customer) throws IOException {
@@ -148,8 +103,7 @@ public class HomeController extends CommonClass implements Initializable {
         super.setActiveUser(activeUser);
         try {
             this.customersList = CustomerService.fetchAllCustomer(activeUser);
-
-           System.out.println("I home I have "+customersList);
+            System.out.println("I home I have " + customersList);
         } catch (SQLException e) {
             errorMessage(e.getMessage());
         }
