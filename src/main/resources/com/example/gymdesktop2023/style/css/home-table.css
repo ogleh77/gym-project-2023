@@ -1,5 +1,5 @@
 .table-view .corner {
-    -fx-background-color: transparent;
+    -fx-background-color: white;
 }
 
 .table-view .column-header-background {
@@ -46,6 +46,13 @@
     -fx-padding: 2 0 2 10px;
 }
 
+.table-row-cell:selected {
+    -fx-background-color: #7fb4e7;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: black;
+}
 
 /*.table-row-cell:hover {*/
 /*    -fx-background-color: #93f9b911;*/

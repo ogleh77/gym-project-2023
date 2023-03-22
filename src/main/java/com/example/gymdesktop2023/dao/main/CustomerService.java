@@ -16,7 +16,7 @@ public class CustomerService {
     private static ObservableList<Customers> offlineCustomers;
     private static ObservableList<Customers> onlineCustomers;
 
-    public static void insertOrUpdateCustomer(Customers customer, boolean newCustomer, Users activeUser) throws SQLException {
+    public static void insertOrUpdateCustomer(Customers customer, boolean newCustomer) throws SQLException {
         try {
             if (newCustomer) {
                 insertCustomer(customer);
@@ -38,6 +38,7 @@ public class CustomerService {
 
     private static void updateCustomer(Customers customer) throws SQLException {
         customerModel.update(customer);
+
     }
 
     public static ObservableList<Customers> fetchAllCustomer(Users activeUser) throws SQLException {
@@ -67,8 +68,7 @@ public class CustomerService {
     public static ObservableList<Customers> fetchQualifiedOfflineCustomers(String customerQuery, LocalDate fromDate, LocalDate toDate) throws SQLException {
         String from = fromDate.toString();
         String to = toDate.toString();
-        ObservableList<Customers> offlineCustomers =
-                customerModel.fetchQualifiedOfflineCustomers(customerQuery, from, to);
+        ObservableList<Customers> offlineCustomers = customerModel.fetchQualifiedOfflineCustomers(customerQuery, from, to);
         Collections.sort(offlineCustomers);
 
         System.out.println("I Service \n");
@@ -76,5 +76,22 @@ public class CustomerService {
         return offlineCustomers;
     }
 
+    public static int binarySearch(ObservableList<Customers> customers, int first, int last, int key) {
+        int mid = (first + last) / 2;
+        while (first <= last) {
+            if (customers.get(mid).getCustomerId() < key) {
+                first = mid + 1;
+            } else if (customers.get(mid).getCustomerId() == key) {
+                System.out.println("Element is found at index: " + mid);
+                return mid;
 
+            } else {
+                last = mid - 1;
+            }
+            mid = (first + last) / 2;
+        }
+        System.out.println("Element is not found!");
+
+        return -1;
+    }
 }

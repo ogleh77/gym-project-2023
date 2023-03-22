@@ -5,12 +5,13 @@
 }
 
 .home-pane {
-    -fx-pref-width: 1150;
-    -fx-pref-height: 750;
+    -fx-pref-width: 1200;
+    -fx-pref-height: 760;
     /*-fx-background-color: #ccddf1;*/
     /*-fx-background-color: #eff2f6;*/
     -fx-background-color: white;
     -fx-background-radius: 10;
+
 }
 
 .top-pane {

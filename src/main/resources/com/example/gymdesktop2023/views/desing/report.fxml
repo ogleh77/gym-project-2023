@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="reportPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="long-pane" stylesheets="@../../style/css/long-pane.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="reportPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="home-pane" stylesheets="@../../style/css/long-pane.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
     <HBox layoutX="105.0" layoutY="28.0" prefHeight="36.0" prefWidth="1016.0" spacing="770.0">
         <Label fx:id="headerInfo" maxWidth="-Infinity" prefHeight="36.0" prefWidth="173.0" styleClass="top-label" text="REPORT PAGE" textAlignment="CENTER" />
         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="43.0" styleClass="cancel-pane">
@@ -23,12 +23,12 @@
             </ImageView>
         </HBox>
     </HBox>
-    <Label layoutX="184.0" layoutY="98.0" prefHeight="24.0" prefWidth="199.0" text="Last week report" textFill="#6b6464">
+    <Label layoutX="184.0" layoutY="130.0" prefHeight="24.0" prefWidth="199.0" text="Last week report" textFill="#6b6464">
         <font>
             <Font name="Verdana" size="15.0" />
         </font>
     </Label>
-    <TableView fx:id="dailyTbView" layoutX="184.0" layoutY="133.0" prefHeight="200.0" prefWidth="783.0" style="-fx-background-color: white;" stylesheets="@../../style/css/table-style-2.css" AnchorPane.bottomAnchor="407.0" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="133.0">
+    <TableView fx:id="dailyTbView" layoutX="184.0" layoutY="165.0" prefHeight="224.0" prefWidth="773.0" style="-fx-background-color: white;" stylesheets="@../../style/css/home-table.css" AnchorPane.bottomAnchor="361.0" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="165.0">
         <columns>
             <TableColumn fx:id="dailyReportDay" prefWidth="149.0" text="report day" />
             <TableColumn fx:id="totalRegister" prefWidth="228.0" text="total of registration" />
@@ -47,12 +47,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
         </columnResizePolicy>
     </TableView>
-    <Label layoutX="184.0" layoutY="382.0" prefHeight="24.0" prefWidth="330.0" text="Search specific date" textFill="#6b6464">
+    <Label layoutX="184.0" layoutY="411.0" prefHeight="24.0" prefWidth="330.0" text="Search specific date" textFill="#6b6464">
         <font>
             <Font name="Verdana" size="15.0" />
         </font>
     </Label>
-    <TableView fx:id="monthlyTbView" layoutX="184.0" layoutY="489.0" prefHeight="200.0" prefWidth="783.0" style="-fx-background-color: white;" stylesheets="@../../style/css/table-style-2.css" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="193.0">
+    <TableView fx:id="monthlyTbView" layoutX="184.0" layoutY="518.0" prefHeight="200.0" prefWidth="783.0" style="-fx-background-color: white;" stylesheets="@../../style/css/home-table.css" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="193.0">
         <columns>
             <TableColumn fx:id="totalReportDays" prefWidth="149.0" text="report days" />
             <TableColumn fx:id="totalRegisrations" prefWidth="228.0" text="total of registrations" />
@@ -78,30 +78,46 @@
             </font>
         </Label>
     </HBox>
-    <DatePicker fx:id="startDate" layoutX="289.0" layoutY="424.0" prefHeight="36.0" prefWidth="193.0" stylesheets="@../../style/css/combo-picker-style.css" />
-    <DatePicker fx:id="endDate" layoutX="570.0" layoutY="423.0" prefHeight="36.0" prefWidth="193.0" stylesheets="@../../style/css/combo-picker-style.css" />
-    <JFXButton fx:id="searchBtn" alignment="CENTER" layoutX="799.0" layoutY="418.0" prefWidth="145.0" styleClass="btn-save" text="Search">
+    <DatePicker fx:id="startDate" layoutX="289.0" layoutY="453.0" prefHeight="36.0" prefWidth="193.0" stylesheets="@../../style/css/combo-picker-style.css" />
+    <DatePicker fx:id="endDate" layoutX="570.0" layoutY="452.0" prefHeight="36.0" prefWidth="193.0" stylesheets="@../../style/css/combo-picker-style.css" />
+    <JFXButton fx:id="searchBtn" alignment="CENTER" layoutX="799.0" layoutY="447.0" prefWidth="145.0" styleClass="btn-save" text="Search">
         <graphic>
             <ImageView fx:id="imgViewSearch" fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../../style/icons/icons8-search-24.png" />
             </ImageView>
         </graphic>
     </JFXButton>
-    <Label layoutX="224.0" layoutY="429.0" prefHeight="24.0" prefWidth="46.0" text="From" textFill="#1d906c">
+    <Label layoutX="224.0" layoutY="458.0" prefHeight="24.0" prefWidth="46.0" text="From" textFill="#1d906c">
         <font>
             <Font name="Tahoma Bold" size="14.0" />
         </font>
     </Label>
-    <Label layoutX="527.0" layoutY="429.0" prefHeight="24.0" prefWidth="29.0" text="To" textFill="#1d906c">
+    <Label layoutX="527.0" layoutY="458.0" prefHeight="24.0" prefWidth="29.0" text="To" textFill="#1d906c">
         <font>
             <Font name="Tahoma Bold" size="14.0" />
         </font>
     </Label>
-    <Separator layoutX="186.0" layoutY="381.0" prefHeight="0.0" prefWidth="773.0" />
+    <Separator layoutX="186.0" layoutY="394.0" prefHeight="0.0" prefWidth="773.0" />
+   <HBox alignment="CENTER" layoutX="9.0" layoutY="79.0" prefHeight="27.0" prefWidth="1050.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <effect>
+         <DropShadow height="35.83" radius="17.415" width="35.83">
+            <color>
+               <Color red="0.24705882370471954" green="0.6117647290229797" blue="0.9098039269447327" />
+            </color>
+         </DropShadow>
+      </effect>
+      <children>
+         <Label fx:id="gymTitle" alignment="CENTER" prefHeight="24.0" prefWidth="1038.0" text="TODHEER GYM CENTER TEL: 4439202/2019923" textFill="#328ca8">
+            <font>
+               <Font name="Tahoma Bold" size="15.0" />
+            </font>
+         </Label>
+      </children>
+   </HBox>
    <effect>
       <DropShadow height="35.83" radius="17.415" width="35.83">
          <color>
-            <Color red="0.8549019694328308" green="0.8470588326454163" blue="0.8470588326454163" />
+            <Color red="0.24705882370471954" green="0.6117647290229797" blue="0.9098039269447327" />
          </color>
       </DropShadow>
    </effect>

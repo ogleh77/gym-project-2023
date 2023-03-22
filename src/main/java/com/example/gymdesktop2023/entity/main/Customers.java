@@ -1,6 +1,5 @@
 package com.example.gymdesktop2023.entity.main;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -17,6 +16,7 @@ public class Customers implements Comparable<Customers> {
     private final double weight;
     private final String whoAdded;
     private ObservableList<Payments> payments;
+
     public Customers(int customerId, String firstName, String middleName, String lastName, String phone, String gander, String shift, String address, String image, double weight, String whoAdded) {
         this.customerId = customerId;
         this.firstName = firstName;
@@ -89,7 +89,7 @@ public class Customers implements Comparable<Customers> {
         return "\n [customerId: " +
                 customerId + " firstname: " +
                 firstName + "  lastname: " +
-                lastName + " gander " + gander + " phone: " + phone + "\n payments: " + payments + "]\n\n";
+                lastName + " gander " + gander + " phone: " + phone + "weight: " + weight + "\n payments: " + payments + "]\n\n";
     }
 
     @Override

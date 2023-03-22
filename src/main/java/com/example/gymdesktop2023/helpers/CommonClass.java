@@ -42,7 +42,6 @@ public abstract class CommonClass {
 
     protected BorderPane borderPane;
     public boolean imageUploaded = false;
-
     //protected Gym currentGym;
     public final String[] images = {
             "/com/example/gymdesktop2023/style/icons/loading_5.gif",
@@ -125,6 +124,15 @@ public abstract class CommonClass {
         getSlideInRight().play();
         // DashboardController.borderPane.setCenter(anchorPane);
         //  System.out.println("In Opener The ref is " + DashboardController.borderPane);
+        borderPane.setCenter(anchorPane);
+        return loader;
+    }
+
+    protected FXMLLoader openNormalWindow(String url, BorderPane borderPane) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
+        AnchorPane anchorPane = loader.load();
+        getSlideInRight().setNode(anchorPane);
+        getSlideInRight().play();
         borderPane.setCenter(anchorPane);
         return loader;
     }
@@ -242,6 +250,9 @@ public abstract class CommonClass {
             errorMessage("Fadlan sawirka lama helin isku day mar kale");
             imageUploaded = false;
         }
+    }
+
+    public void setCustomersList(ObservableList<Customers> customersList) {
     }
 
     public void checkImage(ImageView imageView, String title) {

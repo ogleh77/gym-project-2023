@@ -2,9 +2,12 @@ package com.example.gymdesktop2023.controllers.main;
 
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideOutLeft;
+import com.example.gymdesktop2023.dao.main.CustomerService;
 import com.example.gymdesktop2023.entity.Users;
+import com.example.gymdesktop2023.entity.main.Customers;
 import com.example.gymdesktop2023.helpers.CommonClass;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +21,7 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DashboardController extends CommonClass implements Initializable {
@@ -31,11 +35,17 @@ public class DashboardController extends CommonClass implements Initializable {
     @FXML
     private StackPane warningHBox;
     private boolean visible = false;
+    private ObservableList<Customers> customersList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
             borderPane.setLeft(null);
+            try {
+                this.customersList = CustomerService.fetchAllCustomer(activeUser);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 
@@ -60,11 +70,14 @@ public class DashboardController extends CommonClass implements Initializable {
         FXMLLoader loader = openWindow("/com/example/gymdesktop2023/views/desing/home.fxml", borderPane, sidePane, menuHBox, warningHBox);
         HomeController controller = loader.getController();
         controller.setActiveUser(activeUser);
+        controller.setBorderPane(borderPane);
     }
 
     @FXML
     void registrationHandler() throws IOException {
-        openWindow("/com/example/gymdesktop2023/views/desing/registrations.fxml", borderPane, sidePane, menuHBox, warningHBox);
+        FXMLLoader loader = openWindow("/com/example/gymdesktop2023/views/desing/registrations.fxml", borderPane, sidePane, menuHBox, warningHBox);
+        RegistrationController controller = loader.getController();
+        controller.setActiveUser(activeUser);
     }
 
     @FXML
@@ -103,5 +116,9 @@ public class DashboardController extends CommonClass implements Initializable {
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
+    }
+
+    public void setCustomersList(ObservableList<Customers> customersList) {
+
     }
 }

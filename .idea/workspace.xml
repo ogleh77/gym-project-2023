@@ -7,15 +7,19 @@
     <list default="true" id="6496ca72-e779-40be-bd2d-4a3f9de891c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/CustomerInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/CustomerInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dao/main/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dao/main/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Payments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Payments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/home-table.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/home-table.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/long-pane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/long-pane.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/outdated.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/outdated.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/payments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/payments.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/registrations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/registrations.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/report.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/report.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +29,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="CSS File" />
         <option value="FxmlFile" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -56,7 +60,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/resources/com/example/gymdesktop2023/views/desing&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/java/com/example/gymdesktop2023/controllers/main&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -72,8 +76,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/info" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dao" />
@@ -89,6 +93,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.gymdesktop2023.dao.main" />
       <recent name="com.example.gymdesktop2023.controllers.service" />
       <recent name="com.example.gymdesktop2023.dto.service" />
       <recent name="com.example.gymdesktop2023.dto" />
@@ -109,6 +114,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CustomerServiceTest.binarySearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gym-desktop-2023" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gymdesktop2023.dao.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dao.main" />
+      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dao.main.CustomerServiceTest" />
+      <option name="METHOD_NAME" value="binarySearch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CustomerServiceTest.fetchQualifiedOfflineCustomers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gym-desktop-2023" />
       <extension name="coverage">
@@ -120,22 +141,6 @@
       <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto" />
       <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.CustomerServiceTest" />
       <option name="METHOD_NAME" value="fetchQualifiedOfflineCustomers" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.insertUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gym-desktop-2023" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.gymdesktop2023.dto.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto.service" />
-      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="insertUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -176,10 +181,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.CustomerServiceTest.binarySearch" />
         <item itemvalue="JUnit.CustomerServiceTest.fetchQualifiedOfflineCustomers" />
         <item itemvalue="JUnit.UserServiceTest.users" />
         <item itemvalue="JUnit.UserServiceTest.update" />
-        <item itemvalue="JUnit.UserServiceTest.insertUser" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +231,15 @@
       <workItem from="1679330393347" duration="20000" />
       <workItem from="1679332092441" duration="5125000" />
       <workItem from="1679377939535" duration="7305000" />
-      <workItem from="1679392919732" duration="8322000" />
+      <workItem from="1679392919732" duration="8797000" />
+      <workItem from="1679425969335" duration="2409000" />
+      <workItem from="1679461428463" duration="2536000" />
+      <workItem from="1679480736051" duration="2134000" />
+      <workItem from="1679482931282" duration="1401000" />
+      <workItem from="1679484389788" duration="569000" />
+      <workItem from="1679485108674" duration="654000" />
+      <workItem from="1679485822644" duration="1297000" />
+      <workItem from="1679487997146" duration="2356000" />
     </task>
     <servers />
   </component>

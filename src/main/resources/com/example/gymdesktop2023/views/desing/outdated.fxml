@@ -15,7 +15,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="long-pane" stylesheets="@../../style/css/long-pane.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="home-pane" stylesheets="@../../style/css/long-pane.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
     <HBox alignment="CENTER" layoutY="12.0" prefHeight="38.0" prefWidth="1150.0" spacing="800.0" AnchorPane.bottomAnchor="700.0">
         <Label fx:id="headerInfo" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" styleClass="top-label" text="OUTDATED MEMBERS">
             <HBox.margin>
@@ -110,7 +110,7 @@
    <effect>
       <DropShadow height="35.82" radius="17.41" width="35.82">
          <color>
-            <Color red="0.8549019694328308" green="0.8470588326454163" blue="0.8470588326454163" />
+            <Color red="0.24705882370471954" green="0.6117647290229797" blue="0.9098039269447327" />
          </color>
       </DropShadow>
    </effect>

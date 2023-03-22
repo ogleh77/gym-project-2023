@@ -11,11 +11,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,15 +48,26 @@ public class HomeController extends CommonClass implements Initializable {
 
     @FXML
     private TableColumn<Customers, JFXButton> update;
+    @FXML
+    private JFXButton paymentBtn;
     private ObservableList<Customers> customersList;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Platform.runLater(this::initTable);
+        System.out.println();
+        Platform.runLater(() -> {
+            initTable();
+            System.out.println("After in table initial Home \n");
+            try {
+                System.out.println(CustomerService.fetchAllCustomer(activeUser));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     private void initTable() {
+        System.out.println("called init method in home");
         customerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         fullName.setCellValueFactory(customers -> new SimpleStringProperty(
                 customers.getValue().getFirstName() + "   " + customers.getValue().getMiddleName()
@@ -65,47 +75,67 @@ public class HomeController extends CommonClass implements Initializable {
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         gander.setCellValueFactory(new PropertyValueFactory<>("gander"));
         shift.setCellValueFactory(new PropertyValueFactory<>("shift"));
-        tableView.setItems(customersList);
+        try {
+            tableView.setItems(CustomerService.fetchAllCustomer(activeUser));
+            System.out.println("Before in table init Home \n");
+            System.out.println(CustomerService.fetchAllCustomer(activeUser));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
-    private void openPayment(Customers customer) throws IOException {
-        //  SlideInRight slideInRight = getSlideInRight();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymdesktop2023/views/info/customer-info.fxml"));
-        Scene scene = new Scene(loader.load());
-        CustomerInfoController controller = loader.getController();
-        controller.setCustomer(customer);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    void paymentHandler() throws IOException {
 
-        /// AnchorPane anchorPane = loader.load();
+        if (tableView.getSelectionModel().getSelectedItem() != null) {
 
-//        slideInRight.setNode(anchorPane);
-//        slideInRight.play();
+            FXMLLoader loader = openNormalWindow("/com/example/gymdesktop2023/views/desing/payments.fxml", borderPane);
+            PaymentController controller = loader.getController();
+            controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
+            controller.setBorderPane(borderPane);
+        }
+
     }
 
-    private void openUpdate(Customers customer) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymdesktop2023/views/main/registrations.fxml"));
-        Scene scene = new Scene(loader.load());
-        RegistrationController controller = loader.getController();
-        controller.setCustomer(customer);
-        controller.setActiveUser(activeUser);
-        System.out.println("The customers I sent " + customersList.hashCode());
-        //  System.out.println(customer);
-//        controller.setCustomers(customersList);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    void fullInfoHandler() throws IOException {
+        if (tableView.getSelectionModel().getSelectedItem() != null) {
+            FXMLLoader loader = openNormalWindow("/com/example/gymdesktop2023/views/desing/customer-info.fxml", borderPane);
+            CustomerInfoController controller = loader.getController();
+            controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
+        }
+    }
+
+    @FXML
+    void deleteHandler() throws IOException {
+//        if (tableView.getSelectionModel().getSelectedItem() != null) {
+//
+//            FXMLLoader loader = openNormalWindow("/com/example/gymdesktop2023/views/desing/customer-info.fxml", borderPane);
+//            CustomerInfoController controller = loader.getController();
+//            controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
+//            // controller.setBorderPane(borderPane);
+//        }
+        tableView.refresh();
+    }
+
+    @FXML
+    void updateHandler() throws IOException {
+        if (tableView.getSelectionModel().getSelectedItem() != null) {
+            FXMLLoader loader = openNormalWindow("/com/example/gymdesktop2023/views/desing/registrations.fxml", borderPane);
+            RegistrationController controller = loader.getController();
+            controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
+            controller.setActiveUser(activeUser);
+        }
     }
 
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
-        try {
-            this.customersList = CustomerService.fetchAllCustomer(activeUser);
-            System.out.println("I home I have " + customersList);
-        } catch (SQLException e) {
-            errorMessage(e.getMessage());
-        }
+    }
+
+    @Override
+    public void setBorderPane(BorderPane borderPane) {
+        super.setBorderPane(borderPane);
     }
 }

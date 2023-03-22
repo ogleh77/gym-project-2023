@@ -4,11 +4,13 @@ import com.example.gymdesktop2023.dao.GymService;
 import com.example.gymdesktop2023.dao.main.CustomerService;
 import com.example.gymdesktop2023.entity.Gym;
 import com.example.gymdesktop2023.entity.Users;
+import com.example.gymdesktop2023.entity.main.CustomerBuilder;
 import com.example.gymdesktop2023.entity.main.Customers;
 import com.example.gymdesktop2023.helpers.CommonClass;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -72,10 +74,13 @@ public class RegistrationController extends CommonClass implements Initializable
     private final Gym currentGym;
     private boolean imageUploaded = false;
     private boolean isCustomerNew = true;
+    private ButtonType ok;
 
     public RegistrationController() throws SQLException {
         this.currentGym = GymService.getGym();
     }
+
+    private ObservableList<Customers> customersList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -92,12 +97,8 @@ public class RegistrationController extends CommonClass implements Initializable
         service.setOnSucceeded(e -> {
             registerBtn.setGraphic(null);
             registerBtn.setText(isCustomerNew ? "Saved" : "Updated");
-            System.out.println("\n");
-            try {
-                System.out.println(CustomerService.fetchAllCustomer(activeUser));
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
+            System.out.println("Done");
+//            System.out.println("After update " + customersList.hashCode());
 
         });
     }
@@ -121,8 +122,6 @@ public class RegistrationController extends CommonClass implements Initializable
                 registerBtn.setText(isCustomerNew ? "Saving" : "Updating");
                 start = true;
             }
-        } else {
-            System.out.println("InValid");
         }
 
     }
@@ -135,6 +134,7 @@ public class RegistrationController extends CommonClass implements Initializable
     @Override
     public void setCustomer(Customers customer) {
         super.setCustomer(customer);
+        System.out.println(customer);
         if (customer != null) {
             firstName.setText(customer.getFirstName());
             middleName.setText(customer.getMiddleName());
@@ -170,12 +170,18 @@ public class RegistrationController extends CommonClass implements Initializable
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
         gymTitle.setText(currentGym.getGymName() + " eDahab: " + currentGym.geteDahab() + " Zaad: " + currentGym.getZaad());
+        try {
+            customersList = CustomerService.fetchAllCustomer(activeUser);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void setBorderPane(BorderPane borderPane) {
         this.borderPane = borderPane;
     }
+
 
     //------------------helpers-------------------
     private final Service<Void> service = new Service<>() {
@@ -184,12 +190,21 @@ public class RegistrationController extends CommonClass implements Initializable
             return new Task<>() {
                 @Override
                 protected Void call() throws Exception {
-                    Thread.sleep(1000);
+
                     try {
-                        CustomerService.insertOrUpdateCustomer(savingCustomer(), isCustomerNew, activeUser);
-                        if (isCustomerNew)
-                            CustomerService.fetchAllCustomer(activeUser).add(savingCustomer());
-                        Platform.runLater(() -> informationAlert(isCustomerNew ? "Waxaad diwaan gelisay macmiil cusub" : "Waxaad update garaysay macmiilka ah " + firstName.getText() + " " + customer.getMiddleName()));
+                        CustomerService.insertOrUpdateCustomer(savingCustomer(), isCustomerNew);
+                        if (isCustomerNew) {
+                            customersList.add(0, savingCustomer());
+                            Thread.sleep(1000);
+                            Platform.runLater(() -> informationAlert("Waxaad diwaan gelisay macmiil cusub"));
+                        } else {
+                            customersList.set(CustomerService.binarySearch(customersList,
+                                    0, customersList.size() - 1,
+                                    customer.getCustomerId()), customer);
+                            Thread.sleep(1000);
+
+                            Platform.runLater(() -> informationAlert("Waxaad update garaysay macmiilka ah "));
+                        }
                     } catch (Exception e) {
                         Platform.runLater(() -> errorMessage(e.getMessage()));
                         e.printStackTrace();
@@ -207,7 +222,20 @@ public class RegistrationController extends CommonClass implements Initializable
         double _weight = ((!weight.getText().isEmpty() || !weight.getText().isBlank())) ? Double.parseDouble(weight.getText().trim()) : 65.0;
         String image = selectedFile != null ? selectedFile.getAbsolutePath() : null;
         int customerId = super.customer == null ? 0 : customer.getCustomerId();
-        return new Customers(customerId, firstName.getText(), middleName.getText(), lastName.getText(), phone.getText(), gander, shift.getValue(), _address, image, _weight, activeUser.getUsername());
+        customer = new CustomerBuilder()
+                .setShift(shift.getValue())
+                .setCustomerId(customerId)
+                .setGander(gander)
+                .setWhoAdded(activeUser.getUsername())
+                .setImage(image)
+                .setAddress(_address)
+                .setLastName(lastName.getText())
+                .setFirstName(firstName.getText())
+                .setMiddleName(middleName.getText())
+                .setPhone(phone.getText())
+                .setWeight(_weight)
+                .build();
+        return customer;
     }
 
     private void phoneValidation() {
@@ -271,6 +299,7 @@ public class RegistrationController extends CommonClass implements Initializable
             imageUploaded = true;
         }
     }
+
 
 //    public void setCustomers(ObservableList<Customers> customers) {
 //        this.customersList = customers;
