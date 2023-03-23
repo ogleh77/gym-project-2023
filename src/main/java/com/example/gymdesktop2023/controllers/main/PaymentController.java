@@ -2,31 +2,34 @@ package com.example.gymdesktop2023.controllers.main;
 
 import animatefx.animation.FadeIn;
 import com.example.gymdesktop2023.dao.GymService;
+import com.example.gymdesktop2023.dao.main.PaymentService;
 import com.example.gymdesktop2023.entity.Box;
 import com.example.gymdesktop2023.entity.Gym;
 import com.example.gymdesktop2023.entity.main.Customers;
+import com.example.gymdesktop2023.entity.main.PaymentBuilder;
 import com.example.gymdesktop2023.entity.main.Payments;
 import com.example.gymdesktop2023.helpers.CommonClass;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class PaymentController extends CommonClass implements Initializable {
@@ -89,33 +92,82 @@ public class PaymentController extends CommonClass implements Initializable {
     private double currentCost = 0;
     private boolean paymentIsGoing = false;
     private final Gym currentGym;
-    private ObservableList<Payments> customerPayment;
-    private LocalDate expiringDate;
+    private LocalDate dateExp;
+    private boolean done = false;
+    private final ButtonType ok;
+    private Box box;
 
     public PaymentController() throws SQLException {
         this.currentGym = GymService.getGym();
         this.fitnessCost = currentGym.getFitnessCost();
         this.poxingCost = currentGym.getPoxingCost();
         this.vipBoxCost = currentGym.getBoxCost();
+        this.ok = new ButtonType("Finish", ButtonBar.ButtonData.OK_DONE);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Platform.runLater(this::initFields);
+        Platform.runLater(() -> {
+            initFields();
+            if (paymentIsGoing) {
+                tellInfo(dateExp);
+                paidBy.getItems().clear();
+                expDate.setValue(dateExp);
+            }
+        });
+
         currentCost = fitnessCost;
         amountPaid.setText(String.valueOf(currentCost));
         paymentValidation();
         validateDiscount();
+
+        service.setOnSucceeded(e -> {
+            createBtn.setGraphic(null);
+
+            if (done) {
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, customer.getFirstName() + " Waxad u samaysay payment cusub", ok);
+
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if (result.isPresent() && result.get() == ok) {
+                    try {
+                        backToReg();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                } else {
+                    result = alert.showAndWait();
+                    createBtn.setDisable(true);
+
+                }
+            }
+
+
+        });
     }
 
     @FXML
     void createPaymentHandler() {
+        if (isValid(getMandatoryFields(), null) && validateDiscount() == null) {
+            if (start) {
+                service.restart();
+                createBtn.setGraphic(getLoadingImageView());
+                createBtn.setText("Creating");
+            } else {
+                service.start();
+                createBtn.setGraphic(getLoadingImageView());
+                createBtn.setText("Creating");
+                start = true;
+            }
 
+        }
     }
 
     @Override
     public void setCustomer(Customers customer) {
         super.setCustomer(customer);
+
         this.gymTitle.setText(currentGym.getGymName() + " eDahab: " + currentGym.geteDahab() + " Zaad: " + currentGym.getZaad());
 
         if (customer != null) {
@@ -128,7 +180,6 @@ public class PaymentController extends CommonClass implements Initializable {
             male.setSelected(customer.getGander().equals("Male"));
             female.setSelected(customer.getGander().equals("Female"));
 
-
             try {
                 if (customer.getImage() != null) {
                     imgView.setImage(new Image(new FileInputStream(customer.getImage())));
@@ -136,35 +187,32 @@ public class PaymentController extends CommonClass implements Initializable {
             } catch (FileNotFoundException e) {
                 errorMessage("Khalad ba ka dhacay " + e.getMessage());
             }
-
-            expDate.setValue(LocalDate.now().plusDays(30));
-
             if (!customer.getPayments().isEmpty()) {
                 for (Payments payment : customer.getPayments()) {
                     checkPayment(payment);
                 }
             }
-        }
 
+        }
     }
 
     private void checkPayment(Payments payment) {
-        if (payment.isOnline() && (payment.getExpDate().isAfter(LocalDate.now()))
-                || payment.getExpDate().equals(LocalDate.now())) {
+        System.out.println("payments is online\n" + payment);
+        if (payment.isOnline() && (payment.getExpDate().isAfter(LocalDate.now())) || payment.getExpDate().equals(LocalDate.now())) {
             amountPaid.setText(String.valueOf(payment.getAmountPaid()));
             paidBy.setValue(payment.getPaidBy());
             discount.setText(String.valueOf(payment.getDiscount()));
             poxing.setSelected(payment.isPoxing());
+            dateExp = payment.getExpDate();
             paymentIsGoing = true;
-            tellInfo(payment);
-
             blockFields(payment);
         }
     }
 
-    private void tellInfo(Payments payment) {
-        paymentInfo.setText(customer.getFirstName() + " Wakhtigu kama dhicin");
-        infoMin.setText("wuxuse ka dhaacyaa [" + payment.getExpDate().toString() + "] Insha Allah");
+    private void tellInfo(LocalDate expDate) {
+
+        paymentInfo.setText("Macmiilkan wakhtigu kama dhicin ");
+        infoMin.setText("wuxuse ka dhaacyaa [" + expDate.toString() + "] Insha Allah");
         paymentInfo.setStyle("-fx-text-fill: red;");
         FadeIn fadeIn = new FadeIn(paymentInfo);
         fadeIn.setCycleCount(50);
@@ -174,6 +222,7 @@ public class PaymentController extends CommonClass implements Initializable {
 
     private void blockFields(Payments payment) {
         if (paymentIsGoing) {
+
             boxChooser.setValue(payment.getBox());
             amountPaid.setEditable(false);
             amountPaid.setText(String.valueOf(payment.getAmountPaid()));
@@ -188,12 +237,12 @@ public class PaymentController extends CommonClass implements Initializable {
     }
 
     private void initFields() {
+        expDate.setValue(LocalDate.now().plusDays(30));
+        expDate.setStyle("-fx-opacity: 1");
         paidBy.setItems(super.getPaidBy());
         currentCost = fitnessCost;
         amountPaid.setText(String.valueOf(currentCost));
-        amountPaid.setEditable(!paymentIsGoing);
         getMandatoryFields().addAll(amountPaid, paidBy);
-
         if (boxChooser.getItems().isEmpty()) {
             for (Box box : currentGym.getVipBoxes()) {
                 if (box.isReady()) boxChooser.getItems().add(box);
@@ -202,32 +251,13 @@ public class PaymentController extends CommonClass implements Initializable {
         boxChooser.getItems().add(new Box(0, "remove box", false));
     }
 
-    private void paymentValidation() {
-        boxChooser.valueProperty().addListener((observable, oldValue, newValue) -> {
-            //Stop the user to name a box into remove or something insha Allah
-            if ((oldValue == null || oldValue.getBoxName().matches("re.*")) && !newValue.getBoxName().matches("re.*")) {
-                currentCost += vipBoxCost;
-            } else if (oldValue != null && boxChooser.getValue().getBoxName().matches("re.*")) {
-                currentCost -= vipBoxCost;
-            }
-            amountPaid.setText(String.valueOf(currentCost));
-        });
-        poxing.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            if (poxing.isSelected()) {
-                currentCost += poxingCost;
-            } else {
-                currentCost -= poxingCost;
-            }
-            amountPaid.setText(String.valueOf((currentCost)));
-        });
-    }
-
     private String validateDiscount() {
 
         if ((!discount.getText().isEmpty() || !discount.getText().isBlank())) {
             if (!discount.getText().matches("[0-9]*")) {
+
                 discountValidation.setVisible(true);
-                discountValidation.setText("discount must be digits only ");
+                discountValidation.setText("discount xarfo keliyaa lo ogolyahy ");
                 return "error";
             } else {
 
@@ -247,4 +277,74 @@ public class PaymentController extends CommonClass implements Initializable {
 
         return null;
     }
+
+    private void paymentValidation() {
+        boxChooser.valueProperty().addListener((observable, oldValue, newValue) -> {
+            //Stop the user to name a box into remove or something insha Allah
+            if ((oldValue == null || oldValue.getBoxName().matches("re.*")) && !newValue.getBoxName().matches("re.*")) {
+                currentCost += vipBoxCost;
+            } else if (oldValue != null && boxChooser.getValue().getBoxName().matches("re.*")) {
+                currentCost -= vipBoxCost;
+            }
+            amountPaid.setText(String.valueOf(currentCost));
+        });
+
+        poxing.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (poxing.isSelected()) {
+                currentCost += poxingCost;
+            } else {
+                currentCost -= poxingCost;
+            }
+            amountPaid.setText(String.valueOf((currentCost)));
+
+        });
+
+
+    }
+
+    private void backToReg() throws IOException {
+        FXMLLoader loader = openNormalWindow("/com/example/gymdesktop2023/views/desing/registrations.fxml", borderPane);
+        RegistrationController controller = loader.getController();
+        controller.setBorderPane(borderPane);
+    }
+
+    private final Service<Void> service = new Service<>() {
+        @Override
+        protected Task<Void> createTask() {
+            return new Task<>() {
+                @Override
+                protected Void call() throws Exception {
+                    try {
+                        double _discount = ((!discount.getText().isEmpty() || !discount.getText().isBlank())) ? Double.parseDouble(discount.getText()) : 0;
+
+                        currentCost -= _discount;
+
+                        Payments payment = new PaymentBuilder().setAmountPaid(currentCost).setExpDate(expDate.getValue()).setPaidBy(paidBy.getValue()).setPoxing(poxing.isSelected()).setCustomerFK(customer.getPhone()).setYear(String.valueOf(LocalDate.now().getYear())).setPaymentDate(LocalDate.now().toString()).setMonth(String.valueOf(LocalDate.now().getMonth())).setDiscount(_discount).setOnline(true).build();
+
+
+                        if (boxChooser.getValue() != null && !boxChooser.getValue().getBoxName().matches("remove box")) {
+                            payment.setBox(boxChooser.getValue());
+                            payment.getBox().setReady(false);
+                        }
+                        customer.getPayments().add(payment);
+                        PaymentService.insertPayment(customer);
+                        Thread.sleep(1000);
+                        System.out.println(payment);
+
+                        Platform.runLater(() -> {
+                            informationAlert("Waxaad samayasay payment cusub..");
+                            done = true;
+                        });
+//
+                    } catch (Exception e) {
+                        Platform.runLater(() -> {
+                            errorMessage(e.getMessage());
+                        });
+                    }
+                    return null;
+                }
+            };
+        }
+    };
+
 }

@@ -53,4 +53,9 @@ public class BoxModel {
         return boxes;
     }
 
+    public void deleteBox(Box box) throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("DELETE FROM box WHERE box_id=" + box.getBoxId());
+        System.out.println(box.getBoxName()+ " is deleted..");
+    }
 }

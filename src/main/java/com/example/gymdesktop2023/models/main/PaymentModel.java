@@ -20,7 +20,7 @@ public class PaymentModel {
 
         try {
             String insertPaymentQuery = "INSERT INTO payments(exp_date, amount_paid, paid_by,"
-                    + "discount,poxing,box_fk, customer_phone_fk) VALUES (?,?,?,?,?,?,?)";
+                    + "discount,poxing,box_fk, customer_phone_fk,month) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(insertPaymentQuery);
             ps.setString(1, payment.getExpDate().toString());
             ps.setDouble(2, payment.getAmountPaid());
@@ -36,6 +36,7 @@ public class PaymentModel {
             }
 
             ps.setString(7, customerPhone);
+            ps.setString(8, payment.getMonth());
             ps.executeUpdate();
             connection.commit();
 

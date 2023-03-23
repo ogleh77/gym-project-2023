@@ -42,6 +42,6 @@ public class Box {
 
     @Override
     public String toString() {
-        return boxName + " ready- " + ready;
+        return boxName + " Banan :- " + (ready ? "'Haa'" : "'Maya'");
     }
 }

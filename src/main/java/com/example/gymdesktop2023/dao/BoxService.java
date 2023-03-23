@@ -6,7 +6,6 @@ import com.example.gymdesktop2023.helpers.CustomException;
 import com.example.gymdesktop2023.models.service.BoxModel;
 import javafx.collections.ObservableList;
 
-
 import java.sql.SQLException;
 
 public class BoxService {
@@ -28,6 +27,14 @@ public class BoxService {
 //        box.setReady(!box.isReady());
 //        int index = findBoxIndex(fetchBoxes(), box.getBoxId());
 //        fetchBoxes().set(index, box);
+    }
+
+    public static void deleteBox(Box box) throws SQLException {
+        if (!box.isReady()) {
+            throw new CustomException("Khanadan macmiil ayaa isticmalaya hada \n" +
+                    "Saaso tahay ma masaxi kartid");
+        }
+        boxModel.deleteBox(box);
     }
 
     public static ObservableList<Box> fetchBoxes() throws SQLException {

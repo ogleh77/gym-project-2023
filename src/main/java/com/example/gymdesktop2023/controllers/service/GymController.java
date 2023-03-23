@@ -9,7 +9,6 @@ import com.example.gymdesktop2023.helpers.CustomException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -109,6 +108,20 @@ public class GymController extends CommonClass implements Initializable {
                         "Tusaale 12 AMA 12.0 error caused " + e.getMessage());
 
             }
+        }
+    }
+
+    @FXML
+    void deleteBoxHandler() {
+        if (listView.getSelectionModel().getSelectedItem() != null) {
+            try {
+                BoxService.deleteBox(listView.getSelectionModel().getSelectedItem());
+                listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
+                informationAlert("Waxaad masaxdey khanad");
+            } catch (SQLException e) {
+                informationAlert(e.getMessage());
+            }
+
         }
     }
 
