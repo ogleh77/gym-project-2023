@@ -15,12 +15,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -29,13 +31,8 @@ import java.util.ResourceBundle;
 public class OutDatedController extends CommonClass implements Initializable {
     @FXML
     private JFXRadioButton female;
-
     @FXML
     private DatePicker fromDate;
-
-    @FXML
-    private Label headerInfo;
-
     @FXML
     private JFXRadioButton male;
 
@@ -52,9 +49,7 @@ public class OutDatedController extends CommonClass implements Initializable {
     private JFXButton searchHandler;
     @FXML
     private JFXRadioButton both;
-    private int column = 0;
     private int row = 0;
-    private int perPage = 4;
     private ObservableList<Customers> outDatedCustomers;
     private final ToggleGroup toggleGroup;
 
@@ -79,31 +74,44 @@ public class OutDatedController extends CommonClass implements Initializable {
         service.setOnSucceeded(e -> {
             searchHandler.setGraphic(null);
             searchHandler.setText("Search");
-            pagination.setPageFactory(this::createPage);
+            pagination.setPageFactory(outDatedCustomers.isEmpty() ? this::vBox : this::createPage);
         });
 
     }
 
     @FXML
     void searchHandler() {
-//        if (isValid(getMandatoryFields(), null)) {
-//            if (start) {
-//                service.restart();
-//                searchHandler.setGraphic(getLoadingImageView());
-//            } else {
-//                service.start();
-//                searchHandler.setGraphic(getLoadingImageView());
-//                start = true;
-//            }
-//        } else {
-//            System.out.println("Invalid....");
-//        }
+        if (isValid(getMandatoryFields(), null)) {
+            if (start) {
+                service.restart();
+                searchHandler.setGraphic(getLoadingImageView());
+            } else {
+                service.start();
+                searchHandler.setGraphic(getLoadingImageView());
+                start = true;
+            }
+        } else {
+            System.out.println("Invalid....");
+        }
         System.out.println(customerQuery());
     }
 
-    private GridPane createPage(int index) {
-        column = 0;
+    private VBox vBox(int index) {
+        VBox vBox = new VBox();
+        Label label = new Label("Lama helin!");
+        label.setStyle("-fx-font-size: 20; -fx-text-fill: #565252;-fx-font-family: Verdana");
+        Label label1 = new Label("Fadlan ma jiro macamiil la helay oo leh astamaha aad ku baaadhay");
+        label1.setStyle("-fx-font-size: 18; -fx-text-fill: #8a8989;-fx-font-family: Verdana");
+        vBox.setAlignment(Pos.CENTER);
+        vBox.setSpacing(10);
+        vBox.getChildren().addAll(label, label1);
+        return vBox;
+    }
 
+    private GridPane createPage(int index) {
+        int column = 0;
+
+        int perPage = 4;
         int fromPage = perPage * index;
         int toIndex = Math.min(fromPage + perPage, outDatedCustomers.size());
 
