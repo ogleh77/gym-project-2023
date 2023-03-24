@@ -146,7 +146,8 @@ public class PaymentModel {
 
         ObservableList<Payments> payments = FXCollections.observableArrayList();
         Statement statement = connection.createStatement();
-        String query = "SELECT * FROM payments WHERE " + " customer_phone_fk='" + customerPhone + "'" + " AND is_online=false AND pending=false " + "AND exp_date between '" + fromDate + "' AND '" + toDate + "';";
+        String query = "SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk='" + customerPhone + "'" + " AND is_online=false AND pending=false " + "AND exp_date between '" + fromDate + "' AND '" + toDate + "';";
+
         ResultSet rs = statement.executeQuery(query);
 
         getPayments(payments, statement, rs);
@@ -155,8 +156,8 @@ public class PaymentModel {
         return payments;
 
     }
+    //----------------------------Helpers----------------––--------
 
-    //--------------------Helpers---------––--------
     private ObservableList<Payments> getPayments(ObservableList<Payments> payments, Statement statement, ResultSet rs) throws SQLException {
         Payments payment;
         while (rs.next()) {
@@ -165,13 +166,11 @@ public class PaymentModel {
             if (rs.getString("box_fk") != null) {
                 box = new Box(rs.getInt("box_id"), rs.getString("box_name"), rs.getBoolean("is_ready"));
             }
-
             payment = getPayments(rs);
             payment.setBox(box);
             payments.add(payment);
 
         }
-
         statement.close();
         rs.close();
         return payments;

@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6496ca72-e779-40be-bd2d-4a3f9de891c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/validcontrollers/CustomerInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/validviews/customer-info.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b56a47f9-7443-4568-8c7b-be125bf3103e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b56a47f9-7443-4568-8c7b-be125bf3103e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/CustomerInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/CustomerInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dao/BoxService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dao/BoxService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dao/main/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dao/main/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Payments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Payments.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/main/PaymentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/main/PaymentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/service/BoxModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/models/service/BoxModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/validcontrollers/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/validcontrollers/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/long-pane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/long-pane.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/validviews/payments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/validviews/payments.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/customer-info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/customer-info.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +53,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/resources/com/example/gymdesktop2023/validviews&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/java/com/example/gymdesktop2023/validcontrollers&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -83,11 +69,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/validcontrollers" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/validviews" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/info" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/icons" />
@@ -100,11 +86,11 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.gymdesktop2023.models.main" />
       <recent name="com.example.gymdesktop2023.dao" />
       <recent name="com.example.gymdesktop2023.dao.main" />
       <recent name="com.example.gymdesktop2023.controllers.service" />
       <recent name="com.example.gymdesktop2023.dto.service" />
-      <recent name="com.example.gymdesktop2023.dto" />
     </key>
   </component>
   <component name="RunManager" selected="Application.HelloApplication">
@@ -169,17 +155,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.users" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PaymentModelTest.fetchQualifiedOfflinePayment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gym-desktop-2023" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.gymdesktop2023.dto.service.*" />
+          <option name="PATTERN" value="com.example.gymdesktop2023.models.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.dto.service" />
-      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.dto.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="users" />
+      <option name="PACKAGE_NAME" value="com.example.gymdesktop2023.models.main" />
+      <option name="MAIN_CLASS_NAME" value="com.example.gymdesktop2023.models.main.PaymentModelTest" />
+      <option name="METHOD_NAME" value="fetchQualifiedOfflinePayment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -188,10 +174,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.PaymentModelTest.fetchQualifiedOfflinePayment" />
         <item itemvalue="JUnit.BoxServiceTest.updateBox" />
         <item itemvalue="JUnit.CustomerServiceTest.binarySearch" />
         <item itemvalue="JUnit.CustomerServiceTest.fetchQualifiedOfflineCustomers" />
-        <item itemvalue="JUnit.UserServiceTest.users" />
       </list>
     </recent_temporary>
   </component>
@@ -258,7 +244,8 @@
       <workItem from="1679625273212" duration="2460000" />
       <workItem from="1679642573326" duration="3019000" />
       <workItem from="1679645642883" duration="1035000" />
-      <workItem from="1679651962762" duration="3103000" />
+      <workItem from="1679651962762" duration="8238000" />
+      <workItem from="1679675280682" duration="4809000" />
     </task>
     <servers />
   </component>
