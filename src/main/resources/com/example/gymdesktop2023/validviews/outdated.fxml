@@ -31,7 +31,7 @@
             </ImageView>
         </HBox>
     </HBox>
-    <Pagination fx:id="pagination" layoutX="40.0" layoutY="155.0" prefHeight="582.0" prefWidth="1069.0" style="-fx-background-color: eaeaea;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+    <Pagination fx:id="pagination" layoutX="40.0" layoutY="155.0" pageCount="0" prefHeight="582.0" prefWidth="1069.0" style="-fx-background-color: eaeaea;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
     <AnchorPane layoutX="49.0" layoutY="72.0" prefHeight="72.0" prefWidth="465.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-position: 10;">
         <effect>
             <DropShadow height="35.85" radius="17.425" width="35.85">

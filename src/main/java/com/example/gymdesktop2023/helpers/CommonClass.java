@@ -252,8 +252,6 @@ public abstract class CommonClass {
         }
     }
 
-    public void setCustomersList(ObservableList<Customers> customersList) {
-    }
 
     public void checkImage(ImageView imageView, String title) {
         ButtonType ok = new ButtonType("Hada soo upload-garee", ButtonBar.ButtonData.OK_DONE);

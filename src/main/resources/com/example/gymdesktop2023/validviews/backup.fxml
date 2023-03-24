@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="319.0" prefWidth="491.0" styleClass="small-pane" stylesheets="@../style/css/small-pane.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymdesktop2023.validcontrollers.BackupController">
+    <HBox alignment="CENTER" prefHeight="37.0" prefWidth="596.0" spacing="360.0" styleClass="top-pane">
+        <HBox alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="37.0" prefWidth="41.0">
+                <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../style/icons/icons8-data-backup-24.png" />
+                </ImageView>
+            </HBox>
+            <Label styleClass="top-label" text="Backup" />
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="37.0" prefWidth="41.0" styleClass="cancel-pane">
+            <HBox.margin>
+                <Insets left="70.0" />
+            </HBox.margin>
+            <ImageView fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../style/icons/icons8-close-30.png" />
+            </ImageView>
+        </HBox>
+    </HBox>
+    <Label layoutX="42.0" layoutY="55.0" styleClass="label-background" text="Backup ku wuxu ka cawinayaa inad data dada dhigato meel save ah" />
+    <JFXButton layoutX="159.0" layoutY="163.0" onAction="#backupHandler" prefWidth="108.0" style="-fx-background-color: #328ca8;" styleClass="btn-option" text="Backup">
+        <graphic>
+           <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+              <Image url="@../style/icons/icons8-data-backup-24.png" />
+           </ImageView>
+        </graphic>
+    </JFXButton>
+    <JFXButton layoutX="160.0" layoutY="224.0" prefWidth="108.0" style="-fx-background-color: #25a146;" styleClass="btn-option" text="Restore">
+        <graphic>
+           <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+              <Image url="@../style/icons/icons8-reset-48.png" />
+           </ImageView>
+        </graphic>
+    </JFXButton>
+    <ListView fx:id="listView" layoutX="42.0" layoutY="88.0" prefHeight="192.0" prefWidth="316.0" />
+    <TextField fx:id="name" layoutX="376.0" layoutY="167.0" prefHeight="29.0" prefWidth="195.0" promptText="Enter backup name" />
+    <Label layoutX="371.0" layoutY="140.0" text="Magaca aad u bixinayso backupka">
+        <font>
+            <Font name="Verdana" size="12.0" />
+        </font>
+    </Label>
+   <JFXButton layoutX="398.0" layoutY="201.0" onAction="#pathHandler" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #25a146;" text="Path" textFill="WHITE">
+      <graphic>
+         <ImageView fitHeight="18.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../style/icons/icons8-add-new-48.png" />
+            </image>
+         </ImageView>
+      </graphic>
+      <font>
+         <Font name="Verdana" size="15.0" />
+      </font>
+   </JFXButton>
+   <Label layoutX="41.0" layoutY="289.0" text="Marka hore dooro locationka" textFill="#656363">
+      <font>
+         <Font name="Verdana Bold" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="41.0" layoutY="308.0" text="Marka labaad taabo restore hadii data ka luntay" textFill="#7c7777">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="42.0" layoutY="325.0" text="Hadii data dada backup ku samynaysana taabo backup" textFill="#7c7777">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font>
+   </Label>
+   <JFXButton layoutX="47.0" layoutY="355.0" onAction="#backupHandler" prefHeight="47.0" prefWidth="108.0" style="-fx-background-color: #afd6e3;" text="Backup" textFill="#171717">
+      <graphic>
+         <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../style/icons/backup.png" />
+            </image>
+         </ImageView>
+      </graphic>
+      <font>
+         <Font name="Verdana" size="14.0" />
+      </font>
+   </JFXButton>
+   <JFXButton layoutX="166.0" layoutY="355.0" onAction="#restoreHandler" prefHeight="47.0" prefWidth="108.0" style="-fx-background-color: #3a6188;" text="Restore" textFill="WHITE">
+      <graphic>
+         <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../style/icons/icons8-available-updates-24.png" />
+            </image>
+         </ImageView>
+      </graphic>
+      <font>
+         <Font name="Verdana" size="15.0" />
+      </font>
+   </JFXButton>
+</AnchorPane>

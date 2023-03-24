@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6496ca72-e779-40be-bd2d-4a3f9de891c3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b56a47f9-7443-4568-8c7b-be125bf3103e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b56a47f9-7443-4568-8c7b-be125bf3103e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/validcontrollers/OutDatedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/validcontrollers/OutDatedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/long-pane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/long-pane.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/small-pane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/small-pane.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/validviews/outdated.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/validviews/outdated.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +27,8 @@
       <list>
         <option value="CSS File" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,7 +59,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/java/com/example/gymdesktop2023/validcontrollers&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-desktop-2023/src/main/resources/com/example/gymdesktop2023/validviews&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -66,8 +75,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/validcontrollers" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/validviews" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/validcontrollers" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/main" />
@@ -243,6 +252,9 @@
       <workItem from="1679645642883" duration="1035000" />
       <workItem from="1679651962762" duration="8238000" />
       <workItem from="1679675280682" duration="5570000" />
+      <workItem from="1679618940087" duration="1928000" />
+      <workItem from="1679685918591" duration="210000" />
+      <workItem from="1679686598081" duration="2544000" />
     </task>
     <servers />
   </component>
