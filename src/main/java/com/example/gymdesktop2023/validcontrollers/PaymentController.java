@@ -89,10 +89,9 @@ public class PaymentController extends CommonClass implements Initializable {
     private final double poxingCost;
     private final double vipBoxCost;
     private double currentCost = 0;
-
     private LocalDate dateExp;
     private final ButtonType ok;
-    private boolean paymentIsGoing = false;
+    private Payments payment;
     private boolean done = false;
 
     public PaymentController() throws SQLException {
@@ -107,11 +106,11 @@ public class PaymentController extends CommonClass implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
             initFields();
-            if (paymentIsGoing) {
-                tellInfo(dateExp);
-                paidBy.getItems().clear();
+            if (payment != null) {
+                tellInfo(dateExp, payment.isPending());
                 expDate.setValue(dateExp);
             }
+
         });
         currentCost = fitnessCost;
         amountPaid.setText(String.valueOf(currentCost));
@@ -130,7 +129,7 @@ public class PaymentController extends CommonClass implements Initializable {
                 } else {
                     createBtn.setDisable(true);
                 }
-            }
+             }
         });
     }
 
@@ -202,13 +201,12 @@ public class PaymentController extends CommonClass implements Initializable {
 
                         if (boxChooser.getValue() != null && !boxChooser.getValue().getBoxName().matches("remove box")) {
                             payment.setBox(boxChooser.getValue());
-                            payment.getBox().setReady(false);
                         }
+
                         customer.getPayments().add(0, payment);
                         PaymentService.insertPayment(customer);
                         Thread.sleep(1000);
                         System.out.println(payment);
-
                         done = true;
                     } catch (Exception e) {
                         Platform.runLater(() -> errorMessage(e.getMessage()));
@@ -220,9 +218,10 @@ public class PaymentController extends CommonClass implements Initializable {
     };
 
     private void initFields() {
+
         expDate.setValue(LocalDate.now().plusDays(30));
         expDate.setStyle("-fx-opacity: 1");
-        paidBy.setItems(super.getPaidBy());
+        paidBy.setItems(getPaidBy());
         currentCost = fitnessCost;
         amountPaid.setText(String.valueOf(currentCost));
         getMandatoryFields().addAll(amountPaid, paidBy);
@@ -273,38 +272,44 @@ public class PaymentController extends CommonClass implements Initializable {
 
         });
     }
+
     private void checkPayment(Payments payment) {
-        if (payment.isOnline() && (payment.getExpDate().isAfter(LocalDate.now())) || payment.getExpDate().equals(LocalDate.now())) {
+        if ((payment.isOnline() || payment.isPending()) && (payment.getExpDate().isAfter(LocalDate.now())) || payment.getExpDate().equals(LocalDate.now())) {
             amountPaid.setText(String.valueOf(payment.getAmountPaid()));
             paidBy.setValue(payment.getPaidBy());
             discount.setText(String.valueOf(payment.getDiscount()));
             poxing.setSelected(payment.isPoxing());
             dateExp = payment.getExpDate();
-            paymentIsGoing = true;
+            this.payment = payment;
             blockFields(payment);
         }
     }
-    private void tellInfo(LocalDate expDate) {
 
-        paymentInfo.setText("Macmiilkan wakhtigu kama dhicin ");
-        infoMin.setText("wuxuse ka dhaacyaa [" + expDate.toString() + "] Insha Allah");
+    private void tellInfo(LocalDate expDate, boolean isPending) {
+
+        paymentInfo.setText(isPending ? "Macmillku payment ayaa u xidhan" : "Macmiilkan wakhtigu kama dhicin ");
+        infoMin.setText(isPending ? "Macmiilka waxa u xidhay payment saaso ay tahay looma samayn karo " +
+                "payment cusub" : "wuxuse ka dhaacyaa [" + expDate.toString() + "] Insha Allah");
         paymentInfo.setStyle("-fx-text-fill: red;");
         FadeIn fadeIn = new FadeIn(paymentInfo);
         fadeIn.setCycleCount(50);
         fadeIn.setDelay(Duration.millis(100));
         fadeIn.play();
     }
+
     private void blockFields(Payments payment) {
-        if (paymentIsGoing) {
+        if (payment.isOnline() || payment.isPending()) {
             amountPaid.setEditable(false);
             amountPaid.setText(String.valueOf(payment.getAmountPaid()));
             poxing.setSelected(payment.isPoxing());
+            paidBy.setValue(payment.getPaidBy());
             poxing.setDisable(true);
             paidBy.setValue(payment.getPaidBy());
             discount.setText(String.valueOf(payment.getDiscount()));
             discount.setEditable(false);
             createBtn.setDisable(true);
-
         }
     }
+
+
 }

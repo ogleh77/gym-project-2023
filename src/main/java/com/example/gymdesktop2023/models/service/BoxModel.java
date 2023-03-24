@@ -25,16 +25,13 @@ public class BoxModel {
 
     public void update(Box box) throws SQLException {
         String boxQuery = "UPDATE box SET is_ready=false WHERE box_id=" + box.getBoxId();
-
         if (!box.isReady()) {
             boxQuery = "UPDATE box SET is_ready=true WHERE box_id=" + box.getBoxId();
         }
         Statement statement = connection.createStatement();
         statement.executeUpdate(boxQuery);
 
-        //  box.setReady(box.isReady());
-        System.out.println(box.isReady() ? "box made false " : "box made true");
-
+        System.out.println("Box set of "+box);
     }
 
     public ObservableList<Box> fetchBoxes() throws SQLException {
@@ -56,6 +53,6 @@ public class BoxModel {
     public void deleteBox(Box box) throws SQLException {
         Statement statement = connection.createStatement();
         statement.executeUpdate("DELETE FROM box WHERE box_id=" + box.getBoxId());
-        System.out.println(box.getBoxName()+ " is deleted..");
+        System.out.println(box.getBoxName() + " is deleted..");
     }
 }

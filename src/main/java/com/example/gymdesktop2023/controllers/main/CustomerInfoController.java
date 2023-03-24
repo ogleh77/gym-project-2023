@@ -91,15 +91,23 @@ public class CustomerInfoController extends CommonClass implements Initializable
 
                 EventHandler<MouseEvent> pending = event -> {
                     System.out.println("Pending is pressed...");
-//                    if (payment.isPending()) {
-//                        System.out.println("Ka fur pendingka..");
-//                    } else {
-//                        System.out.println("Pend garee...");
-//                    }
-                    //openPendingStage(payment);
+
+                    if (payment.isPending()) {
+                        payment.setPending(!payment.isPending());
+                        payment.setOnline(!payment.isPending());
+                        System.out.println("pendingka.."+payment.isPending());
+                        informationAlert("Ma hubtaa inad ");
+                        payment.getPendingBtn() .setStyle("-fx-background-color: #1e6e66;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
+                     } else {
+                        payment.setPending(!payment.isPending());
+                        payment.setOnline(!payment.isPending());
+                        System.out.println("Ka fur pendingka.."+payment.isPending());
+                        payment.getPendingBtn().setStyle("-fx-background-color: red;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15;-fx-opacity: 1");
+                    }
+                    tableView.refresh();
                 };
 
-                //     payment.getPendingBtn().addEventFilter(MouseEvent.MOUSE_CLICKED, pending);
+                payment.getPendingBtn().addEventFilter(MouseEvent.MOUSE_CLICKED, pending);
             }
         });
     }
@@ -158,7 +166,7 @@ public class CustomerInfoController extends CommonClass implements Initializable
         }
     }
 
-
+// TODO: 12/04/2023 Confirmation of pending and unpend insha Allah 
 //    private void openPendingStage(Payments payment) {
 //        try {
 //            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("/com/example/salmaan/views/pending-confirm.fxml"));

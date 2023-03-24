@@ -110,3 +110,8 @@
     -fx-font-family: Tahoma;
     -fx-font-weight: bold;
 }
+
+.link :hover{
+    -fx-cursor: hand;
+    -fx-underline: true;
+}

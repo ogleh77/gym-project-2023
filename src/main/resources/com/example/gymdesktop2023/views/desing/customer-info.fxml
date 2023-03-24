@@ -63,7 +63,7 @@
             <Image url="@../../style/icons/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpeg" />
         </ImageView>
     </VBox>
-    <TableView fx:id="tableView" blendMode="MULTIPLY" layoutX="73.0" layoutY="494.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0" prefWidth="995.0" style="-fx-background-color: white;" stylesheets="@../../style/css/home-table.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+    <TableView fx:id="tableView" blendMode="MULTIPLY" layoutX="73.0" layoutY="494.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0" prefWidth="1038.0" style="-fx-background-color: white;" stylesheets="@../../style/css/home-table.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="62.0">
         <columns>
             <TableColumn fx:id="paymentDate" prefWidth="111.0" text="payment date" />
             <TableColumn fx:id="expDate" prefWidth="96.0" text="exp date" />
@@ -73,9 +73,9 @@
             <TableColumn fx:id="paidBy" prefWidth="92.0" text="Paid by" />
             <TableColumn fx:id="discount" prefWidth="88.0" text="Discount" />
             <TableColumn fx:id="poxing" prefWidth="86.0" text="Poxing" />
-            <TableColumn fx:id="vipBox" prefWidth="76.0" text="Vip Box" />
-            <TableColumn fx:id="running" prefWidth="82.0" text="runing" />
-            <TableColumn fx:id="pendingBtn" prefWidth="83.0" text="pending" />
+            <TableColumn fx:id="vipBox" prefWidth="82.0" text="Vip Box" />
+            <TableColumn fx:id="running" prefWidth="75.0" text="runing" />
+            <TableColumn fx:id="pendingBtn" prefWidth="122.0" text="pending" />
         </columns>
       <effect>
          <DropShadow height="35.82" radius="17.41" width="35.82">
@@ -84,6 +84,9 @@
             </color>
          </DropShadow>
       </effect>
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </columnResizePolicy>
     </TableView>
     <Label layoutX="886.0" layoutY="393.0" text="customer profile" textFill="#328ca8" AnchorPane.rightAnchor="188.0">
         <font>

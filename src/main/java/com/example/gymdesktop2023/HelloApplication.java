@@ -1,7 +1,9 @@
 package com.example.gymdesktop2023;
 
-import com.example.gymdesktop2023.controllers.main.DashboardController;
+
 import com.example.gymdesktop2023.dao.UserService;
+import com.example.gymdesktop2023.dao.main.CustomerService;
+import com.example.gymdesktop2023.validcontrollers.PaymentController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,16 +16,17 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymdesktop2023/views/desing/gym.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymdesktop2023/validviews/payments.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-//        DashboardController controller = fxmlLoader.getController();
-//        // controller.setCustomer(CustomerService.fetchAllCustomer(UserService.users().get(0)).get(5));
-//        controller.setActiveUser(UserService.users().get(0));
+        PaymentController controller = fxmlLoader.getController();
+        controller.setCustomer(CustomerService.fetchAllCustomer(UserService.users().get(0)).get(0));
+
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
 
+    // TODO: 23/03/2023 Insha Allah customer payment pending and un pend  
     // TODO: 13/03/2023 Trigger hadii customer phone ka la update gareyo paymentkana updategareya insha Allah
     public static void main(String[] args) {
         launch();

@@ -18,8 +18,7 @@ public class PaymentService {
             String customerGander = customer.getGander();
             paymentModel.insertPayment(customer.getPhone(), customerGander, customer.getPayments().get(0));
         } catch (SQLException e) {
-            throw new CustomException("Khalad ayaaa ka dhacay " + e.getMessage() + " " +
-                    "\n fadlan dib u search garee customerka kadibna payment usamee");
+            throw new CustomException("Khalad ayaaa ka dhacay " + e.getMessage() + " " + "\n fadlan dib u search garee customerka kadibna payment usamee");
         }
 
     }
@@ -31,19 +30,18 @@ public class PaymentService {
             int daysRemind = Period.between(pendingDate, exp).getDays();
 
             if (daysRemind <= allowedDays) {
-                throw new CustomException("Fadlan lama xidhi karo event kan waayo\n" +
-                        " wuxu ka hoseya wakhtiga loo asteyey oo ah " + allowedDays + " malmood " +
-                        "Payment kana waxa u hadhay " + daysRemind + " Malmood");
+                throw new CustomException("Fadlan lama xidhi karo payment kan waayo\n" + "wuxu ka hoseya wakhtiga loo asteyey oo ah " + allowedDays + " malmood " +
+                        "Halka payment kana u hadhay " + daysRemind + " Malmood");
             }
             paymentModel.holdPayment(payment, daysRemind);
         } catch (SQLException e) {
-            throw new CustomException("Khalad ayaaa ka dhacay " + e.getMessage());
+            throw new CustomException(e.getMessage());
         }
     }
 
     public static void unHoldPayment(Payments payment) throws SQLException {
         try {
-            paymentModel.unHold(payment.getPaymentID());
+            paymentModel.unHold(payment);
         } catch (SQLException e) {
             throw new CustomException(e.getMessage());
         }
@@ -60,6 +58,7 @@ public class PaymentService {
     public static ObservableList<Payments> fetchCustomersOfflinePayment(String customerPhone) throws SQLException {
         return paymentModel.fetchCustomersOfflinePayment(customerPhone);
     }
+
     public static ObservableList<Payments> fetchQualifiedOfflinePayment(String customerPhone, String fromDate, String toDate) throws SQLException {
         return paymentModel.fetchQualifiedOfflinePayment(customerPhone, fromDate, toDate);
     }

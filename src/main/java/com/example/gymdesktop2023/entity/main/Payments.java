@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Payments {
     private final int paymentID;
     private final String paymentDate;
-    private final LocalDate expDate;
+    private LocalDate expDate;
     private final String month;
     private final String year;
     private final double amountPaid;
@@ -18,10 +18,12 @@ public class Payments {
     private final boolean poxing;
     private Box box;
     private final String customerFK;
-    private final boolean online;
-    private final boolean pending;
+    private boolean online;
+    private boolean pending;
 
     private final JFXButton pendingBtn;
+    private final String pendStyle = "-fx-background-color: #1e6e66;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15";
+    private final String unPendStyle = "-fx-background-color: red;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15";
 
     public Payments(int paymentID, String paymentDate, LocalDate expDate, String month, String year, double amountPaid, String paidBy, double discount, boolean poxing, String customerFK, boolean online, boolean pending) {
         this.paymentID = paymentID;
@@ -36,11 +38,12 @@ public class Payments {
         this.customerFK = customerFK;
         this.online = online;
         this.pending = pending;
-        this.pendingBtn = new JFXButton("Xanib");
-        this.pendingBtn.setStyle("-fx-background-color: #1e6e66;-fx-text-fill: white;-fx-pref-width: 100;-fx-font-size: 15");
-//        if (!this.online) {
-//            pendingBtn.setDisable(true);
-//        }
+        this.pendingBtn = new JFXButton(pending ? "Fur" : "Xidh");
+        this.pendingBtn.setStyle(pending ? unPendStyle : pendStyle);
+        if (!this.online && !this.pending) {
+            pendingBtn.setDisable(true);
+            this.pendingBtn.setStyle(unPendStyle);
+        }
     }
 
     public int getPaymentID() {
@@ -99,9 +102,20 @@ public class Payments {
         this.box = box;
     }
 
-
     public JFXButton getPendingBtn() {
         return pendingBtn;
+    }
+
+    public void setPending(boolean pending) {
+        this.pending = pending;
+    }
+
+    public void setOnline(boolean online) {
+        this.online = online;
+    }
+
+    public void setExpDate(LocalDate expDate) {
+        this.expDate = expDate;
     }
 
     //  @Override
@@ -110,20 +124,6 @@ public class Payments {
 //    }
     @Override
     public String toString() {
-        return "Payments{" +
-                "paymentID=" + paymentID +
-                ", paymentDate='" + paymentDate + '\'' +
-                ", expDate=" + expDate +
-                ", month='" + month + '\'' +
-                ", year='" + year + '\'' +
-                ", amountPaid=" + amountPaid +
-                ", paidBy='" + paidBy + '\'' +
-                ", discount=" + discount +
-                ", poxing=" + poxing +
-                ", box=" + box +
-                ", customerFK='" + customerFK + '\'' +
-                ", online=" + online +
-                ", pending=" + pending +
-                '}';
+        return "Payments{" + "paymentID=" + paymentID + ", paymentDate='" + paymentDate + '\'' + ", expDate=" + expDate + ", month='" + month + '\'' + ", year='" + year + '\'' + ", amountPaid=" + amountPaid + ", paidBy='" + paidBy + '\'' + ", discount=" + discount + ", poxing=" + poxing + ", box=" + box + ", customerFK='" + customerFK + '\'' + ", online=" + online + ", pending=" + pending + '}';
     }
 }

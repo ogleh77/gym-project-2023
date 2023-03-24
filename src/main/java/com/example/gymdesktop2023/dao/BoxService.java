@@ -24,9 +24,9 @@ public class BoxService {
 
     public static void updateBox(Box box) throws SQLException {
         boxModel.update(box);
-//        box.setReady(!box.isReady());
-//        int index = findBoxIndex(fetchBoxes(), box.getBoxId());
-//        fetchBoxes().set(index, box);
+        box.setReady(!box.isReady());
+        int index = findBoxIndex(fetchBoxes(), box.getBoxId());
+        fetchBoxes().set(index, box);
     }
 
     public static void deleteBox(Box box) throws SQLException {

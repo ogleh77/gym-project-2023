@@ -319,14 +319,24 @@ public class PaymentController extends CommonClass implements Initializable {
 
                         currentCost -= _discount;
 
-                        Payments payment = new PaymentBuilder().setAmountPaid(currentCost).setExpDate(expDate.getValue()).setPaidBy(paidBy.getValue()).setPoxing(poxing.isSelected()).setCustomerFK(customer.getPhone()).setYear(String.valueOf(LocalDate.now().getYear())).setPaymentDate(LocalDate.now().toString()).setMonth(String.valueOf(LocalDate.now().getMonth())).setDiscount(_discount).setOnline(true).build();
+                        Payments payment = new PaymentBuilder()
+                                .setAmountPaid(currentCost)
+                                .setExpDate(expDate.getValue())
+                                .setPaidBy(paidBy.getValue())
+                                .setPoxing(poxing.isSelected())
+                                .setCustomerFK(customer.getPhone())
+                                .setYear(String.valueOf(LocalDate.now().getYear()))
+                                .setPaymentDate(LocalDate.now().toString())
+                                .setMonth(String.valueOf(LocalDate.now().getMonth()))
+                                .setDiscount(_discount).setOnline(true)
+                                .build();
 
 
                         if (boxChooser.getValue() != null && !boxChooser.getValue().getBoxName().matches("remove box")) {
                             payment.setBox(boxChooser.getValue());
                             payment.getBox().setReady(false);
                         }
-                        customer.getPayments().add(payment);
+                        customer.getPayments().add(0, payment);
                         PaymentService.insertPayment(customer);
                         Thread.sleep(1000);
                         System.out.println(payment);
