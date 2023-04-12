@@ -74,7 +74,6 @@ public class RegistrationController extends CommonClass implements Initializable
     private final Gym currentGym;
     private boolean imageUploaded = false;
     private boolean isCustomerNew = true;
-    private ButtonType ok;
 
     public RegistrationController() throws SQLException {
         this.currentGym = GymService.getGym();
@@ -98,13 +97,11 @@ public class RegistrationController extends CommonClass implements Initializable
             registerBtn.setGraphic(null);
             registerBtn.setText(isCustomerNew ? "Saved" : "Updated");
             System.out.println("Done");
-//            System.out.println("After update " + customersList.hashCode());
-
         });
     }
 
     @FXML
-    void customerSaveHandler() throws SQLException {
+    void customerSaveHandler() {
         if (isValid(getMandatoryFields(), genderGroup) && (phone.getText().length() == 7
                 || !phoneValidation.isVisible()) && (weight.getText().length() == 2
                 || !weightValidation.isVisible())) {
@@ -189,7 +186,7 @@ public class RegistrationController extends CommonClass implements Initializable
         protected Task<Void> createTask() {
             return new Task<>() {
                 @Override
-                protected Void call() throws Exception {
+                protected Void call() {
 
                     try {
                         CustomerService.insertOrUpdateCustomer(savingCustomer(), isCustomerNew);
@@ -201,8 +198,6 @@ public class RegistrationController extends CommonClass implements Initializable
                             customersList.set(CustomerService.binarySearch(customersList,
                                     0, customersList.size() - 1,
                                     customer.getCustomerId()), customer);
-                            Thread.sleep(1000);
-
                             Platform.runLater(() -> informationAlert("Waxaad update garaysay macmiilka ah "));
                         }
                     } catch (Exception e) {

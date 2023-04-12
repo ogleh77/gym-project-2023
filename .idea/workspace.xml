@@ -7,19 +7,13 @@
     <list default="true" id="6496ca72-e779-40be-bd2d-4a3f9de891c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/PaymentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/controllers/main/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dao/main/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/dao/main/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/entity/main/Customers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymdesktop2023/helpers/CommonClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/home-table.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/home-table.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/long-pane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/style/css/long-pane.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/customer-info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/customer-info.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/outdated.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/outdated.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/payments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/payments.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/registrations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/registrations.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/report.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymdesktop2023/views/desing/report.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +233,8 @@
       <workItem from="1679484389788" duration="569000" />
       <workItem from="1679485108674" duration="654000" />
       <workItem from="1679485822644" duration="1297000" />
-      <workItem from="1679487997146" duration="2356000" />
+      <workItem from="1679487997146" duration="3970000" />
+      <workItem from="1679505698617" duration="4085000" />
     </task>
     <servers />
   </component>

@@ -162,7 +162,7 @@
          </font>
       </Label>
       <HBox alignment="CENTER_RIGHT">
-         <TextField prefHeight="33.0" prefWidth="304.0" promptText="e.g mohamed or 4303924" />
+         <TextField fx:id="search" prefHeight="33.0" prefWidth="304.0" promptText="e.g mohamed or 4303924" />
          <ImageView fitHeight="30.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../style/icons/icons8-available-updates-24.png" />
          </ImageView>

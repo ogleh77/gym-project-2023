@@ -15,7 +15,6 @@ import com.jfoenix.controls.JFXRadioButton;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -66,25 +65,19 @@ public class PaymentController extends CommonClass implements Initializable {
 
     @FXML
     private JFXRadioButton male;
-
     @FXML
     private TextField middleName;
-
     @FXML
     private ComboBox<String> paidBy;
-
     @FXML
     private Label paymentInfo;
-
     @FXML
     private TextField phone;
-
     @FXML
     private JFXCheckBox poxing;
     @FXML
     private Label infoMin;
     private final Gym currentGym;
-
     private final double fitnessCost;
     private final double poxingCost;
     private final double vipBoxCost;
@@ -92,6 +85,8 @@ public class PaymentController extends CommonClass implements Initializable {
     private boolean paymentIsGoing = false;
     private final ButtonType ok;
     private LocalDate expiringDate;
+
+    private boolean done = false;
 
     public PaymentController() throws SQLException {
         this.currentGym = GymService.getGym();
@@ -114,10 +109,17 @@ public class PaymentController extends CommonClass implements Initializable {
         paymentValidation();
         validateDiscount();
 
+        service.setOnSucceeded(e -> {
+            if (done) {
+                System.out.println("Is done");
+            } else {
+                System.out.println("Not done");
+            }
+        });
     }
 
     @FXML
-    void createPaymentHandler(ActionEvent event) {
+    void createPaymentHandler() {
         if (isValid(getMandatoryFields(), null) && validateDiscount() == null) {
             if (start) {
                 service.restart();
@@ -129,17 +131,13 @@ public class PaymentController extends CommonClass implements Initializable {
                 createBtn.setText("Creating");
                 start = true;
             }
-
         }
     }
 
     @Override
     public void setCustomer(Customers customer) {
         super.setCustomer(customer);
-
-        System.out.println(customer);
         gymTitle.setText(currentGym.getGymName() + " eDahab: " + currentGym.geteDahab() + " Zaad: " + currentGym.getZaad());
-
         if (customer != null) {
             firstName.setText(customer.getFirstName());
             middleName.setText(customer.getFirstName());
@@ -162,7 +160,6 @@ public class PaymentController extends CommonClass implements Initializable {
             }
 
             expDate.setValue(LocalDate.now().plusDays(30));
-
 
             if (!customer.getPayments().isEmpty()) {
                 for (Payments payment : customer.getPayments()) {
@@ -192,7 +189,6 @@ public class PaymentController extends CommonClass implements Initializable {
                 protected Void call() {
                     try {
                         double _discount = ((!discount.getText().isEmpty() || !discount.getText().isBlank())) ? Double.parseDouble(discount.getText()) : 0;
-
                         currentCost -= _discount;
 
                         Payments payment = new PaymentBuilder()
@@ -210,11 +206,11 @@ public class PaymentController extends CommonClass implements Initializable {
                             payment.setBox(boxChooser.getValue());
                             boxChooser.getItems().remove(boxChooser.getValue());
                         }
-                        customer.getPayments().add(0, payment);
                         PaymentService.insertPayment(customer);
+                        customer.getPayments().add(0, payment);
                         Thread.sleep(100);
                         Platform.runLater(() -> informationAlert("Waxaad samayasay payment cusub.."));
-
+                        done = true;
                     } catch (SQLException e) {
                         Platform.runLater(() -> {
                             errorMessage(e.getMessage());

@@ -4,15 +4,17 @@ import com.example.gymdesktop2023.dao.main.CustomerService;
 import com.example.gymdesktop2023.entity.Users;
 import com.example.gymdesktop2023.entity.main.Customers;
 import com.example.gymdesktop2023.helpers.CommonClass;
-import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
@@ -30,59 +32,52 @@ public class HomeController extends CommonClass implements Initializable {
 
     @FXML
     private TableColumn<Customers, String> gander;
-
-    @FXML
-    private TableColumn<Customers, JFXButton> information;
-
-    @FXML
-    private TableColumn<Customers, JFXButton> payments;
-
     @FXML
     private TableColumn<Customers, String> phone;
 
     @FXML
     private TableColumn<Customers, String> shift;
-
     @FXML
     private TableView<Customers> tableView;
-
     @FXML
-    private TableColumn<Customers, JFXButton> update;
-    @FXML
-    private JFXButton paymentBtn;
+    private TextField search;
     private ObservableList<Customers> customersList;
+    private FilteredList<Customers> filteredList;
+    private SortedList<Customers> sortedList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println();
         Platform.runLater(() -> {
             initTable();
-            System.out.println("After in table initial Home \n");
-            try {
-                System.out.println(CustomerService.fetchAllCustomer(activeUser));
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            filteredList = new FilteredList<>(customersList, b -> true);
+            sortedList = new SortedList<>(filteredList);
+            sortedList.comparatorProperty().bind(tableView.comparatorProperty());
+            tableView.setItems(sortedList);
+            search.textProperty().addListener((observable, oldValue, newValue) -> filteredList.setPredicate(customer -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                if (customer.getFirstName().contains(newValue.toLowerCase()) || customer.getFirstName().contains(newValue.toUpperCase())) {
+                    return true;
+                } else if (customer.getPhone().contains(newValue)) {
+                    return true;
+                } else if (customer.getLastName().contains(newValue.toLowerCase()) || customer.getLastName().contains(newValue.toUpperCase())) {
+                    return true;
+                } else
+                    return customer.getMiddleName().contains(newValue.toLowerCase()) || customer.getMiddleName().contains(newValue.toUpperCase());
+            }));
         });
     }
 
     private void initTable() {
         System.out.println("called init method in home");
         customerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-        fullName.setCellValueFactory(customers -> new SimpleStringProperty(
-                customers.getValue().getFirstName() + "   " + customers.getValue().getMiddleName()
-                        + "   " + customers.getValue().getLastName()));
+        fullName.setCellValueFactory(customers -> new SimpleStringProperty(customers.getValue().getFirstName() + "   " + customers.getValue().getMiddleName() + "   " + customers.getValue().getLastName()));
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         gander.setCellValueFactory(new PropertyValueFactory<>("gander"));
         shift.setCellValueFactory(new PropertyValueFactory<>("shift"));
-        try {
-            tableView.setItems(CustomerService.fetchAllCustomer(activeUser));
-            System.out.println("Before in table init Home \n");
-            System.out.println(CustomerService.fetchAllCustomer(activeUser));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
+        tableView.setItems(customersList);
     }
 
     @FXML
@@ -108,7 +103,7 @@ public class HomeController extends CommonClass implements Initializable {
     }
 
     @FXML
-    void deleteHandler() throws IOException {
+    void deleteHandler() {
 //        if (tableView.getSelectionModel().getSelectedItem() != null) {
 //
 //            FXMLLoader loader = openNormalWindow("/com/example/gymdesktop2023/views/desing/customer-info.fxml", borderPane);
@@ -132,6 +127,11 @@ public class HomeController extends CommonClass implements Initializable {
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
+        try {
+            customersList = CustomerService.fetchAllCustomer(activeUser);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

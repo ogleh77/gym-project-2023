@@ -17,11 +17,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="long-pane" stylesheets="@../../style/css/long-pane.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymdesktop2023.controllers.main.PaymentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="home-pane" stylesheets="@../../style/css/long-pane.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymdesktop2023.controllers.main.PaymentController">
     <effect>
         <DropShadow height="35.82" radius="17.41" spread="0.01" width="35.82">
             <color>
-                <Color red="0.8549019694328308" green="0.8470588326454163" blue="0.8470588326454163" />
+                <Color red="0.24705882370471954" green="0.6117647290229797" blue="0.9098039269447327" />
             </color>
         </DropShadow>
     </effect>
@@ -40,9 +40,9 @@
     <ComboBox fx:id="boxChooser" layoutX="896.0" layoutY="281.0" prefHeight="34.0" prefWidth="161.0" promptText="coose vip box" AnchorPane.rightAnchor="93.0" />
     <VBox layoutX="795.0" layoutY="450.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="155.0">
         <effect>
-            <DropShadow height="35.66" radius="15.864999999999998" spread="0.77" width="29.8">
+            <DropShadow height="6.06" radius="4.0175" spread="0.77" width="12.01">
                 <color>
-                    <Color red="0.7763158082962036" green="0.7367811799049377" blue="0.7367811799049377" />
+                    <Color red="0.24705882370471954" green="0.6117647290229797" blue="0.9098039269447327" />
                 </color>
             </DropShadow>
         </effect>
@@ -126,7 +126,7 @@
             <Font name="Arial Bold" size="12.0" />
         </font>
     </Label>
-    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="994.0" spacing="880.0" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="994.0" spacing="880.0" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <Label prefHeight="29.0" prefWidth="191.0" styleClass="top-label" text="PAYMENT FORM" textFill="#e8eeec">
             <font>
                 <Font name="Arial Black" size="20.0" />
@@ -146,14 +146,14 @@
             <Font name="Arial Black" size="12.0" />
         </font>
     </Label>
-    <HBox alignment="CENTER" layoutY="60.0" prefHeight="24.0" prefWidth="1150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <Label alignment="CENTER" prefHeight="24.0" prefWidth="724.0" textFill="#328ca8">
-            <font>
-                <Font name="Tahoma Bold" size="15.0" />
-            </font>
-        </Label>
-    </HBox>
    <HBox alignment="CENTER" layoutX="9.0" layoutY="79.0" prefHeight="27.0" prefWidth="1050.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="637.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <effect>
+         <DropShadow height="35.83" radius="17.415" width="35.83">
+            <color>
+               <Color red="0.24705882370471954" green="0.6117647290229797" blue="0.9098039269447327" />
+            </color>
+         </DropShadow>
+      </effect>
       <children>
          <Label fx:id="gymTitle" alignment="CENTER" prefHeight="24.0" prefWidth="1038.0" text="TODHEER GYM CENTER TEL: 4439202/2019923" textFill="#328ca8">
             <font>
@@ -161,12 +161,5 @@
             </font>
          </Label>
       </children>
-      <effect>
-         <DropShadow height="35.83" radius="17.415" width="35.83">
-            <color>
-               <Color red="0.8549019694328308" green="0.8470588326454163" blue="0.8470588326454163" />
-            </color>
-         </DropShadow>
-      </effect>
    </HBox>
 </AnchorPane>
